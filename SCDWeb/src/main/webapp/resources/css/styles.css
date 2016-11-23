@@ -1,0 +1,36 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: arial, sans-serif;
+}
+
+.header {
+	background-color: #eee;
+	height: 40px;
+}
+
+.content {
+	padding-top: 80px;
+	height: 410px;
+}
+
+#login {
+	background-color: #6495FF;
+	border: solid 3px #000;
+	border-radius: 12px;
+	height: 150px;
+	width: 350px;
+	padding-top: 70px;
+}
+
+.footer {
+	height: 100px;
+	background-color: #aaa;
+}
+
+.inputForm {
+	border: solid 1px #999;
+	border-radius: 4px;
+}
+
+.button {}

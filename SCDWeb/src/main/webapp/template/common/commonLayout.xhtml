@@ -8,24 +8,24 @@
 
 <h:head>
 	<title>#{msgs.layoutWindowTitle}</title>
-	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="styles.css" />
 </h:head>
 
 <h:body>
 	<div id="page">
-		<div id="header">
+		<div id="header" align="center" class="header">
 			<ui:insert name="header">
 				<ui:include src="/template/common/commonHeader.xhtml" />
 			</ui:insert>
 		</div>
 
-		<div id="content">
+		<div id="content" align="center" class="content">
 			<ui:insert name="content">
 				<ui:include src="/template/common/commonContent.xhtml" />
 			</ui:insert>
 		</div>
 
-		<div id="footer">
+		<div id="footer" align="center" class="footer">
 			<ui:insert name="footer">
 				<ui:include src="/template/common/commonFooter.xhtml" />
 			</ui:insert>
