@@ -6,23 +6,38 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+<h:head>
+	<title>#{msgs.layoutWindowTitle}</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
 <h:body>
-	<ui:composition template="/template/common/commonLayout.xhtml">
-		<ui:define name="content">
-			<div align="center" id="login">
-				<h:form>
-					<h:panelGrid columns="2">
-						<h:outputLabel value="#{msgs.indexUsuarioPrompt}" />
-						<h:inputText value="" styleClass="inputForm" />
-						<h:outputLabel value="#{msgs.indexSenhaPrompt}" />
-						<h:inputSecret value="" styleClass="inputForm" />
-					</h:panelGrid>
-					<br />
-					<h:commandButton value="Entrar" styleClass="button" />
-				</h:form>
-			</div>
-		</ui:define>
-	</ui:composition>
+
+	<div class="content" align="center">
+		<h2>
+			<h:outputLabel value="#{msgs.indexPageTitle}" />
+		</h2>
+		<div align="center" id="login">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="#{msgs.indexUsuarioPrompt}" />
+					<h:inputText value="" styleClass="inputForm" />
+					<h:outputLabel value="#{msgs.indexSenhaPrompt}" />
+					<h:inputSecret value="" styleClass="inputForm" />
+				</h:panelGrid>
+				<br />
+				<div class="buttonLogin">
+					<h:commandButton value="Entrar" />
+				</div>
+			</h:form>
+		</div>
+	</div>
+	<div class="footer" align="center">
+		<h:outputLabel value="#{msgs.layoutFooterText}" />
+		<br />
+		<h:outputLabel value="#{msgs.layoutFooterCopyright}" />
+	</div>
+
 </h:body>
 
 </html>
