@@ -16,11 +16,26 @@ body {
 
 #login {
 	background-color: #6495FF;
-	border: solid 3px #000;
+	border: solid 2px #000;
 	border-radius: 12px;
-	height: 170px;
-	width: 350px;
-	padding-top: 90px;
+	height: 15em;
+	width: 20em;
+	padding-top: 60px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.input {
+	width: 80%;
+	margin-top: 5%;
+	margin-left: 5%;
+	border-radius: 3px;
+	border: 2px solid windowframe;
+	font-family: monospace;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .footer {
@@ -35,5 +50,12 @@ body {
 }
 
 .buttonLogin {
-	margin-left: 149px;
+	width: 20%;
+	height: 2em;
+	border: 2px solid windowframe;
+	color: #000000;
+	font-size: 11pt;
+	cursor:pointer;
+	margin-top:1%;
+	margin-left: 35%;
 }
