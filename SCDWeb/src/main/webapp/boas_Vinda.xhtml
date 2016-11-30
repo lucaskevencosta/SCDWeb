@@ -7,20 +7,23 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </h:head>
 <h:body>
 	<ui:insert name="header">
 		<ui:include src="commonMenu.xhtml" />
 	</ui:insert>
 	<div class="contentBoasVinda" align="center">
-		<h:outputLabel value="Seja Bem Vindo ao Nosso Sistema" styleClass="bemVindo"/>
+		<h:outputLabel value="Seja Bem Vindo ao Nosso Sistema"
+			styleClass="bemVindo" />
 		<br />
-		<h:graphicImage library="img" name="IMP212.jpg" styleClass="responsivoImg"/>
+		<h:graphicImage library="img" name="IMP212.jpg"
+			styleClass="responsivoImg" />
 	</div>
 	<div class="footer" align="center">
 		<ui:insert name="header">
-			<ui:include src="/template/common/commonFooter.xhtml"/>
+			<ui:include src="/template/common/commonFooter.xhtml" />
 		</ui:insert>
 	</div>
 </h:body>
