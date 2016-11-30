@@ -16,41 +16,54 @@
 		<h2>
 			<h:outputLabel value="#{msgs.indexPageCadastro}" />
 		</h2>
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
-						styleClass="etiquetas" />
-					<h:inputText value="" styleClass="inputForm" />
-					<h:outputLabel value="#{msgs.cadProdutoPrompt}" />
-					<h:inputText value="" styleClass="inputForm" />
-					<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}" />
-					<h:inputText value="" styleClass="inputForm" />
-					<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}" />
-					<h:selectOneMenu styleClass="inputForm">
-						<f:selectItem itemValue="" itemLabel="Selecione" />
-						<f:selectItem itemValue="Novo" itemLabel="Novo" />
-						<f:selectItem itemValue="Usado" itemLabel="Usado" />
-					</h:selectOneMenu>
-					<h:outputLabel value="#{msgs.cadAnosDepreciacao}" />
-					<h:inputText value="" styleClass="inputForm" />
-					<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}" />
-					<h:selectOneMenu styleClass="inputForm">
-						<f:selectItem itemValue="" itemLabel="Selecione" />
-						<f:selectItem itemValue="8" itemLabel="Um de 8 horas" />
-						<f:selectItem itemValue="16" itemLabel="Dois de 8 horas" />
-						<f:selectItem itemValue="24" itemLabel="Três de 8 horas" />
-					</h:selectOneMenu>
-					<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}" />
-					<h:inputText value="" styleClass="inputForm" />
-					<h:outputLabel value="#{msgs.cadDataVendaPrompt}" />
-					<h:inputText value="" styleClass="inputForm" />
-					<h:outputLabel value="#{msgs.cadValorVendaPrompt}" />
-					<h:inputText value="" styleClass="inputForm" />
-				</h:panelGrid>
-				<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
-					styleClass="buttonCada" />
-			</h:form>
-		</div>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{BeanBens.bm.referenciaProduto}" styleClass="inputForm" />
+				
+				<h:outputLabel value="#{msgs.cadProdutoPrompt}" />
+				<h:inputText value="#{BeanBens.bm.produto}" styleClass="inputForm" />
+
+				<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}" />
+				<h:inputText value="#{BeanBens.bm.data_de_compra}" styleClass="inputForm">
+					<f:convertDateTime dateStyle="default" />
+				</h:inputText>
+
+				<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}" />
+				<h:selectOneMenu styleClass="inputForm" value="#{BeanBens.bm.tipo_de_produto}">
+					<f:selectItem itemValue="" itemLabel="Selecione" />
+					<f:selectItem itemValue="Novo" itemLabel="Novo" />
+					<f:selectItem itemValue="Usado" itemLabel="Usado" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="#{msgs.cadAnosDepreciacao}" />
+				<h:inputText value="#{BeanBens.bm.anos_depreciacao}" styleClass="inputForm" />
+
+				<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}" />
+				<h:selectOneMenu styleClass="inputForm" value="#{BeanBens.bm.turno_de_trabalho}">
+					<f:selectItem itemValue="" itemLabel="Selecione" />
+					<f:selectItem itemValue="1" itemLabel="Um de 8 horas" />
+					<f:selectItem itemValue="2" itemLabel="Dois de 8 horas" />
+					<f:selectItem itemValue="3" itemLabel="Três de 8 horas" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}" />
+				<h:inputText value="#{BeanBens.bm.valor_da_compra}" styleClass="inputForm" />
+
+				<h:outputLabel value="#{msgs.cadDataVendaPrompt}" />
+				<h:inputText value="#{BeanBens.bm.data_de_venda}" styleClass="inputForm">
+					<f:convertDateTime dateStyle="default" />
+				</h:inputText>
+
+				<h:outputLabel value="#{msgs.cadValorVendaPrompt}" />
+				<h:inputText value="#{BeanBens.bm.valor_da_venda}" styleClass="inputForm" />
+
+			</h:panelGrid>
+			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
+				styleClass="buttonCada" action="#{BeanBens.actionGravar}"/>
+		</h:form>
+	</div>
 
 	<div class="footer" align="center">
 		<ui:insert name="header">
