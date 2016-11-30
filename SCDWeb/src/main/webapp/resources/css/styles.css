@@ -1,6 +1,6 @@
 body {
-	padding: 0;
 	margin: 0;
+	padding: 0;
 	font-family: Arial, sans-serif;
 }
 
@@ -12,6 +12,25 @@ body {
 .content {
 	padding-top: 40px;
 	height: 410px;
+}
+
+.contentBoasVinda {
+	padding-top: 40px;
+	height: 380px;
+}
+
+.responsivoImg{
+          max-width: 413px;   
+          width: 100%;
+          max-height: 500px;  
+          min-height: auto;      
+          background-size:100%;
+          background-repeat: no-repeat;
+  }
+
+.bemVindo{
+	font-weight: bold;
+	font-size: 2em;
 }
 
 #login {
@@ -26,7 +45,7 @@ body {
 	box-sizing: border-box;
 }
 
-.contentCadastro{
+.contentCadastro {
 	padding-top: 40px;
 	height: 410px;
 }
@@ -35,8 +54,8 @@ body {
 	font-size: 1em;
 	color: black;
 	-webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .input {
@@ -69,7 +88,7 @@ body {
 	border-radius: 4px;
 }
 
-.buttonCada{
+.buttonCada {
 	width: 10%;
 	height: 1.6em;
 	border-radius: 3px;
@@ -95,8 +114,68 @@ body {
 	margin-left: 29%;
 }
 
+.head {
+	width: 100%;
+	background-color: #4E94AB;
+}
 
+#btn-menu {
+	display: none;
+}
 
+.head label {
+	display: none;
+	width: 30px;
+	height: 30px;
+	padding: 10px;
+	border-right: 1px solid #fff;
+}
 
+.head label:HOVER {
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.3);
+}
 
+.menu ul {
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	display: flex;
+}
 
+.menu li {
+	border-right: 1px solid #fff;
+}
+
+.menu li:HOVER {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.menu li a {
+	display: block;
+	padding: 15px 20px;
+	color: #fff;
+	text-decoration: none;
+}
+
+@media ( max-width :768px) {
+	.head label {
+		display: block;
+	}
+	.menu {
+		position: absolute;
+		background: #4E94AB;
+		width: 70%;
+		margin-left: -70%;
+		transition: all 0.5s;
+	}
+	.menu ul {
+		flex-direction: column;
+	}
+	.menu li {
+		border-top: 1px solid #fff;
+	}
+	#btn-menu:CHECKED ~ .menu {
+		margin: 0;
+	}
+}
