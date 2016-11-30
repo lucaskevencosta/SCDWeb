@@ -10,7 +10,7 @@ body {
 }
 
 .content {
-	padding-top: 80px;
+	padding-top: 40px;
 	height: 410px;
 }
 
@@ -24,6 +24,19 @@ body {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+.contentCadastro{
+	padding-top: 40px;
+	height: 410px;
+}
+
+.etiquetas {
+	font-size: 1em;
+	color: black;
+	-webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .input {
@@ -56,6 +69,19 @@ body {
 	border-radius: 4px;
 }
 
+.buttonCada{
+	width: 10%;
+	height: 1.6em;
+	border-radius: 3px;
+	border: 2px solid windowframe;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 12pt;
+	cursor: pointer;
+	margin-top: 1%;
+	margin-left: 15%;
+}
+
 .buttonLogin {
 	width: 25%;
 	height: 1.6em;
@@ -68,3 +94,13 @@ body {
 	margin-top: 8%;
 	margin-left: 29%;
 }
+
+.menu{
+	background-color: #ddd;
+}
+
+
+
+
+
+
