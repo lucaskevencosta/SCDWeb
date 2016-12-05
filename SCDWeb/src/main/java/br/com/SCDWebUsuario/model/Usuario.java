@@ -10,7 +10,6 @@ public class Usuario implements Serializable{
 	private String senha;
 	private String msgErro;
 	
-	
 	public String getUsuario() {
 		return usuario;
 	}

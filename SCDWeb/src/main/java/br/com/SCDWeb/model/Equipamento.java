@@ -3,7 +3,7 @@ package br.com.SCDWeb.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Bens implements Serializable{
+public class Equipamento implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 

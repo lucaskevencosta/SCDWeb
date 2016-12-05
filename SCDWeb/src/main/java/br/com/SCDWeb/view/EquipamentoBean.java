@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 
-import br.com.SCDWeb.model.Bens;
-import br.com.SCDWeb.model.BensRN;
+import br.com.SCDWeb.model.Equipamento;
+import br.com.SCDWeb.model.EquipamentoRN;
 import br.com.SCDWebUsuario.model.Usuario;
 
 @ManagedBean (name = "BeanBens")
-public class Bean_Bens implements Serializable{
+public class EquipamentoBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
 	private Usuario user = new Usuario();
-	private Bens bem = new Bens();
+	private Equipamento bem = new Equipamento();
 
 	public String actionGravar(){
-		new BensRN().salvar(bem);
+		new EquipamentoRN().salvar(bem);
 		return "";
 	}
 	
-	public String actionLogar(){
+	public String actionLogin(){
 		String irPara = "index";
 		if (user.getUsuario().equals("admin") && user.getSenha().equals("admin")){
 			irPara = "boas_Vinda";
@@ -31,17 +31,21 @@ public class Bean_Bens implements Serializable{
 		return irPara;
 	}
 	
-	public Bens getBm() {
+	public Equipamento getBm() {
 		return bem;
 	}
 
-	public void setBm(Bens bem) {
+	public void setBm(Equipamento bem) {
 		this.bem = bem;
 	}
+
+
 
 	public Usuario getUser() {
 		return user;
 	}
+
+
 
 	public void setUser(Usuario user) {
 		this.user = user;

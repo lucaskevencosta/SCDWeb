@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 
 import br.com.SCDWeb.util.ConnectionFactory;
 
-public class BensDAO extends ConnectionFactory{
+public class EquipamentoDAO extends ConnectionFactory{
 
 	PreparedStatement ps;
 	ResultSet rs;
 	Connection con;
 	
-	private Bens bem = new Bens();
+	private Equipamento bem = new Equipamento();
 
-	public void inserir(Bens bm){
+	public void inserir(Equipamento bm){
 		String sql = "INSERT INTO cadastro(referencia, produto, data_de_compra, data_de_venda, valor_de_compra, valor_de_venda, turno_de_trabalho, tipo_de_produto, depreciacao) "
 				+ "VALUES(?,?,?,?,?,?,?,?,?)";
 		try {
@@ -44,12 +44,11 @@ public class BensDAO extends ConnectionFactory{
 		}
 	}
 	
-	
-	public Bens getBem() {
+	public Equipamento getBem() {
 		return bem;
 	}
 
-	public void setBem(Bens bem) {
+	public void setBem(Equipamento bem) {
 		this.bem = bem;
 	}
 }

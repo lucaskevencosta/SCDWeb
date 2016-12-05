@@ -9,7 +9,7 @@
 <h:head>
 	<title>#{msgs.layoutWindowTitle}</title>
 	<h:outputStylesheet library="css" name="styles.css" />
-		<meta name="viewport"
+	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </h:head>
 
@@ -26,7 +26,7 @@
 				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
 					styleClass="etiquetas" />
 				<h:inputText value="#{BeanBens.bm.referenciaProduto}"
-					styleClass="inputForm" />
+					styleClass="inputForm"/>
 
 				<h:outputLabel value="#{msgs.cadProdutoPrompt}" />
 				<h:inputText value="#{BeanBens.bm.produto}" styleClass="inputForm" />
@@ -62,19 +62,19 @@
 				<h:inputText value="#{BeanBens.bm.valor_da_compra}"
 					styleClass="inputForm" />
 
+				<h:outputLabel value="#{msgs.cadValorVendaPrompt}" />
+				<h:inputText value="#{BeanBens.bm.valor_da_venda}"
+					styleClass="inputForm" />
+
 				<h:outputLabel value="#{msgs.cadDataVendaPrompt}" />
 				<h:inputText value="#{BeanBens.bm.data_de_venda}"
 					styleClass="inputForm">
 					<f:convertDateTime dateStyle="default" />
 				</h:inputText>
 
-				<h:outputLabel value="#{msgs.cadValorVendaPrompt}" />
-				<h:inputText value="#{BeanBens.bm.valor_da_venda}"
-					styleClass="inputForm" />
-
 			</h:panelGrid>
 			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
-				styleClass="buttonCada" action="#{BeanBens.actionGravar}" />
+				styleClass="buttonCada" action="#{BeanBens.actionGravar}"/>
 		</h:form>
 	</div>
 
