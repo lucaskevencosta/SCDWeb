@@ -9,7 +9,7 @@
 <h:head>
 	<title>#{msgs.layoutWindowTitle}</title>
 	<h:outputStylesheet library="css" name="styles.css" />
-		<meta name="viewport"
+	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </h:head>
 
@@ -22,15 +22,17 @@
 			<h:form>
 				<h:panelGrid columns="2">
 					<h:outputLabel value="#{msgs.indexUsuarioPrompt}" />
-					<h:inputText value="#{BeanBens.user.usuario}" styleClass="input" />
+					<h:inputText value="#{viewUsuario.usuarioEntrada}"
+						styleClass="input" required="true" id="usuario"
+						label="Nome de usuário" />
 					<h:outputLabel value="#{msgs.indexSenhaPrompt}" />
-					<h:inputSecret value="#{BeanBens.user.senha}" styleClass="input" />
+					<h:inputSecret value="#{viewUsuario.senhaEntrada}"
+						styleClass="input" required="true" id="senha" label="Senha" />
 				</h:panelGrid>
 				<h:commandButton value="#{msgs.indexBontaoPrompt}"
-					styleClass="buttonLogin" action="#{BeanBens.actionLogin}"/>
+					styleClass="buttonLogin" action="#{viewUsuario.actionLogar}" />
 				<br />
-				<br />
-				<h:outputLabel value="#{BeanBens.user.msgErro}" styleClass="msgErro"/>
+				<h:messages id="msgErro" styleClass="msgErro" />
 			</h:form>
 		</div>
 	</div>
