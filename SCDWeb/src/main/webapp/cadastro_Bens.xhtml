@@ -9,9 +9,14 @@
 <h:head>
 	<title>#{msgs.layoutWindowTitle}</title>
 	<h:outputStylesheet library="css" name="styles.css" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </h:head>
 
 <h:body>
+	<ui:insert name="header">
+		<ui:include src="commonMenu.xhtml" />
+	</ui:insert>
 	<div class="contentCadastro" align="center">
 		<h2>
 			<h:outputLabel value="#{msgs.indexPageCadastro}" />
@@ -20,28 +25,33 @@
 			<h:panelGrid columns="2">
 				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{BeanBens.bm.referenciaProduto}" styleClass="inputForm" />
-				
+				<h:inputText value="#{BeanBens.bm.referenciaProduto}"
+					styleClass="inputForm"/>
+
 				<h:outputLabel value="#{msgs.cadProdutoPrompt}" />
 				<h:inputText value="#{BeanBens.bm.produto}" styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}" />
-				<h:inputText value="#{BeanBens.bm.data_de_compra}" styleClass="inputForm">
+				<h:inputText value="#{BeanBens.bm.data_de_compra}"
+					styleClass="inputForm">
 					<f:convertDateTime dateStyle="default" />
 				</h:inputText>
 
 				<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}" />
-				<h:selectOneMenu styleClass="inputForm" value="#{BeanBens.bm.tipo_de_produto}">
+				<h:selectOneMenu styleClass="inputForm"
+					value="#{BeanBens.bm.tipo_de_produto}">
 					<f:selectItem itemValue="" itemLabel="Selecione" />
 					<f:selectItem itemValue="Novo" itemLabel="Novo" />
 					<f:selectItem itemValue="Usado" itemLabel="Usado" />
 				</h:selectOneMenu>
 
 				<h:outputLabel value="#{msgs.cadAnosDepreciacao}" />
-				<h:inputText value="#{BeanBens.bm.anos_depreciacao}" styleClass="inputForm" />
+				<h:inputText value="#{BeanBens.bm.anos_depreciacao}"
+					styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}" />
-				<h:selectOneMenu styleClass="inputForm" value="#{BeanBens.bm.turno_de_trabalho}">
+				<h:selectOneMenu styleClass="inputForm"
+					value="#{BeanBens.bm.turno_de_trabalho}">
 					<f:selectItem itemValue="" itemLabel="Selecione" />
 					<f:selectItem itemValue="1" itemLabel="Um de 8 horas" />
 					<f:selectItem itemValue="2" itemLabel="Dois de 8 horas" />
@@ -49,15 +59,18 @@
 				</h:selectOneMenu>
 
 				<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}" />
-				<h:inputText value="#{BeanBens.bm.valor_da_compra}" styleClass="inputForm" />
-
-				<h:outputLabel value="#{msgs.cadDataVendaPrompt}" />
-				<h:inputText value="#{BeanBens.bm.data_de_venda}" styleClass="inputForm">
-					<f:convertDateTime dateStyle="default" />
-				</h:inputText>
+				<h:inputText value="#{BeanBens.bm.valor_da_compra}"
+					styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadValorVendaPrompt}" />
-				<h:inputText value="#{BeanBens.bm.valor_da_venda}" styleClass="inputForm" />
+				<h:inputText value="#{BeanBens.bm.valor_da_venda}"
+					styleClass="inputForm" />
+
+				<h:outputLabel value="#{msgs.cadDataVendaPrompt}" />
+				<h:inputText value="#{BeanBens.bm.data_de_venda}"
+					styleClass="inputForm">
+					<f:convertDateTime dateStyle="default" />
+				</h:inputText>
 
 			</h:panelGrid>
 			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
