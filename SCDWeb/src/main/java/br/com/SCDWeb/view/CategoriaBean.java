@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 import br.com.SCDWeb.model.categoria.Categoria;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
@@ -16,7 +15,6 @@ import br.com.SCDWeb.model.categoria.CategoriaRN;
  */
 
 @ManagedBean (name = "viewCategoria")
-@SessionScoped
 public class CategoriaBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;

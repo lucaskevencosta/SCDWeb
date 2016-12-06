@@ -6,10 +6,26 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+</h:head>
 <h:body>
-	<ui:composition>
-			<h:outputLabel value="Header" />
-	</ui:composition>
+	<div class="head">
+		<input type="checkbox" id="btn-menu" /> <label for="btn-menu">
+			<h:graphicImage library="img" name="bar-menu.png" />
+		</label>
+		<div class="menu">
+			<ul>
+				<li><a href="boas_Vinda.xhtml">Inicío</a></li>
+				<li><a href="cadastro_Bens.xhtml">Cadastrar</a></li>
+				<li><a href="">Listar Equipamentos</a></li>
+				<li><a href="listagem_Categoria.xhtml">Listar Categorias</a></li>
+				<li><a href="">Calcular Depreciação</a></li>
+				<li><a href="index.xhtml">Sair</a></li>
+			</ul>
+		</div>
+	</div>
 </h:body>
-
 </html>
