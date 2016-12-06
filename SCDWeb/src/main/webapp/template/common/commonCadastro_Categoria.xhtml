@@ -18,17 +18,16 @@
 			<h:outputLabel value="#{msgs.catePageTitleCadastro}" />
 		</h4>
 		<hr />
-		<h:panelGrid columns="1">
+		<h:panelGrid columns="2">
 			<h:outputLabel value="#{msgs.catPageCatego}" styleClass="etiquetas" />
 			<h:inputText value="#{viewCategoria.categoria.categoria}"
 				styleClass="input" />
 			<h:outputLabel value="#{msgs.catPageDesc}" styleClass="etiquetas" />
 			<h:inputTextarea value="#{viewCategoria.categoria.descricao}"
 				styleClass="input" />
-			<h:commandButton value="#{msgs.catPageButton}"
-				styleClass="buttonCate" action="#{viewCategoria.actionGravar}"
-				type="submit" />
 		</h:panelGrid>
+		<h:commandButton value="#{msgs.catPageButton}" styleClass="buttonCate"
+			action="#{viewCategoria.actionGravar}" type="submit" />
 	</h:form>
 </h:body>
 </html>

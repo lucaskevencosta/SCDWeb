@@ -16,6 +16,7 @@ public class Categoria implements Serializable {
 	private Long id;
 	private String descricao;
 	private String categoria;
+	private String msg;
 	
 	public Long getId() {
 		return id;
@@ -34,5 +35,11 @@ public class Categoria implements Serializable {
 	}
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }
