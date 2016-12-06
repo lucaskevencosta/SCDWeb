@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>#{msgs.layoutWindowTitle}</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+</h:head>
+
+<h:body>
+	<ui:insert name="header">
+		<ui:include src="commonMenu.xhtml" />
+	</ui:insert>
+	<br />
+	<div class="contentCadastro" align="center">
+		<h2>
+			<h:outputLabel value="#{msgs.catPageTitle}" />
+		</h2>
+		<h:form>
+			<h:dataTable value="#{viewCategoria.todasCategorias}"
+				var="objCategoria" border="1">
+				<f:facet name="header">
+					<h:outputLabel value="#{msgs.catPageTableTitle}" />
+				</f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="ID" />
+					</f:facet>
+					<h:outputLabel value="#{objCategoria.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Categoria" />
+					</f:facet>
+					<h:outputLabel value="#{objCategoria.categoria}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Descrição" />
+					</f:facet>
+					<h:outputLabel value="#{objCategoria.descricao}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Excluir" />
+					</f:facet>
+					<h:commandLink action="#{viewCategoria.actionApagar}">
+						<h:graphicImage library="img" name="garbage.png" />
+						<f:setPropertyActionListener value="#{objCategoria}"
+							target="#{viewCategoria.categoria}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Alterar" />
+					</f:facet>
+					<h:commandLink action="#{viewCategoria.actionAtualizar}">
+						<h:graphicImage library="img" name="edit.png" />
+						<f:setPropertyActionListener value="#{objCategoria}"
+							target="#{viewCategoria.categoria}" />
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+			<ui:insert>
+				<ui:include src="template/common/commonCadastro_Categoria.xhtml" />
+			</ui:insert>
+		</h:form>
+	</div>
+	<div class="footer" align="center">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonFooter.xhtml" />
+		</ui:insert>
+	</div>
+</h:body>
+</html>

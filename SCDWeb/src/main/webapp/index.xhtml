@@ -22,15 +22,15 @@
 			<h:form>
 				<h:panelGrid columns="2">
 					<h:outputLabel value="#{msgs.indexUsuarioPrompt}" />
-					<h:inputText value="#{BeanBens.user.usuario}" styleClass="input" />
+					<h:inputText  styleClass="input" />
 					<h:outputLabel value="#{msgs.indexSenhaPrompt}" />
-					<h:inputSecret value="#{BeanBens.user.senha}" styleClass="input" />
+					<h:inputSecret styleClass="input" />
 				</h:panelGrid>
 				<h:commandButton value="#{msgs.indexBontaoPrompt}"
-					styleClass="buttonLogin" action="#{BeanBens.actionLogin}"/>
+					styleClass="buttonLogin" />
 				<br />
 				<br />
-				<h:outputLabel value="#{BeanBens.user.msgErro}" styleClass="msgErro"/>
+				<h:outputLabel value="" styleClass="msgErro"/>
 			</h:form>
 		</div>
 	</div>

@@ -107,6 +107,19 @@ body {
 	margin-right: 5%;
 }
 
+.buttonCate{
+	height: 1.6em;
+	border-radius: 3px;
+	border: 2px solid windowframe;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	font-size: 12pt;
+	cursor: pointer;
+	margin-top: 1%;
+	margin-left: 10%;
+}
+
+
 .buttonLogin {
 	width: 25%;
 	height: 1.6em;

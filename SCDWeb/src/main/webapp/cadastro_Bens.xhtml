@@ -25,33 +25,33 @@
 			<h:panelGrid columns="2">
 				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{BeanBens.bm.referenciaProduto}"
+				<h:inputText value=""
 					styleClass="inputForm"/>
 
 				<h:outputLabel value="#{msgs.cadProdutoPrompt}" />
-				<h:inputText value="#{BeanBens.bm.produto}" styleClass="inputForm" />
+				<h:inputText value="" styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}" />
-				<h:inputText value="#{BeanBens.bm.data_de_compra}"
+				<h:inputText value=""
 					styleClass="inputForm">
 					<f:convertDateTime dateStyle="default" />
 				</h:inputText>
 
 				<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}" />
 				<h:selectOneMenu styleClass="inputForm"
-					value="#{BeanBens.bm.tipo_de_produto}">
+					value="">
 					<f:selectItem itemValue="" itemLabel="Selecione" />
 					<f:selectItem itemValue="Novo" itemLabel="Novo" />
 					<f:selectItem itemValue="Usado" itemLabel="Usado" />
 				</h:selectOneMenu>
 
 				<h:outputLabel value="#{msgs.cadAnosDepreciacao}" />
-				<h:inputText value="#{BeanBens.bm.anos_depreciacao}"
+				<h:inputText value=""
 					styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}" />
 				<h:selectOneMenu styleClass="inputForm"
-					value="#{BeanBens.bm.turno_de_trabalho}">
+					value="">
 					<f:selectItem itemValue="" itemLabel="Selecione" />
 					<f:selectItem itemValue="1" itemLabel="Um de 8 horas" />
 					<f:selectItem itemValue="2" itemLabel="Dois de 8 horas" />
@@ -59,22 +59,22 @@
 				</h:selectOneMenu>
 
 				<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}" />
-				<h:inputText value="#{BeanBens.bm.valor_da_compra}"
+				<h:inputText value=""
 					styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadValorVendaPrompt}" />
-				<h:inputText value="#{BeanBens.bm.valor_da_venda}"
+				<h:inputText value=""
 					styleClass="inputForm" />
 
 				<h:outputLabel value="#{msgs.cadDataVendaPrompt}" />
-				<h:inputText value="#{BeanBens.bm.data_de_venda}"
+				<h:inputText value=""
 					styleClass="inputForm">
 					<f:convertDateTime dateStyle="default" />
 				</h:inputText>
 
 			</h:panelGrid>
 			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
-				styleClass="buttonCada" action="#{BeanBens.actionGravar}"/>
+				styleClass="buttonCada" />
 		</h:form>
 	</div>
 
