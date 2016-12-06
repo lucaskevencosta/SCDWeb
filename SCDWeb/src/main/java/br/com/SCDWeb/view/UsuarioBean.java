@@ -28,7 +28,7 @@ public class UsuarioBean implements Serializable {
 
 	public String actionLogar() {
 		if (new UsuarioRN().validaLogin(usuarioEntrada, senhaEntrada))
-			return "listagem_equipamento.xhtml";
+			return "boas_Vinda.xhtml";
 		else {
 			// Cria uma mensagem
 			FacesMessage msg = new FacesMessage("Usuário ou senha inválido!");

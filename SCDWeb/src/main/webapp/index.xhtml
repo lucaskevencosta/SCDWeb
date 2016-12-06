@@ -22,12 +22,10 @@
 			<h:form>
 				<h:panelGrid columns="2">
 					<h:outputLabel value="#{msgs.indexUsuarioPrompt}" />
-					<h:inputText styleClass="input" />
 					<h:inputText value="#{viewUsuario.usuarioEntrada}"
 						styleClass="input" required="true" id="usuario"
 						label="Nome de usuário" />
 					<h:outputLabel value="#{msgs.indexSenhaPrompt}" />
-					<h:inputSecret styleClass="input" />
 					<h:inputSecret value="#{viewUsuario.senhaEntrada}"
 						styleClass="input" required="true" id="senha" label="Senha" />
 				</h:panelGrid>
@@ -35,7 +33,6 @@
 					styleClass="buttonLogin" action="#{viewUsuario.actionLogar}" />
 				<br />
 				<br />
-				<h:outputLabel value="" styleClass="msgErro" />
 				<h:messages id="msgErro" styleClass="msgErro" />
 			</h:form>
 		</div>
