@@ -46,7 +46,7 @@ public class EquipamentoRN {
 		Date dtFinal = equipamento.getDataDeVenda();
 		int periodo = 0;
 		
-		periodo = (encontrarAno(dtFinal) - encontrarAno(dtInicial) + 1) * 12;
+		periodo = (encontrarAno(dtFinal) - encontrarAno(dtInicial)) * 12;
 		
 		// cálculo do ano inicial
 		if (encontrarDiaDoMes(dtInicial) <= 15)
