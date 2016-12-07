@@ -22,7 +22,7 @@ public class CategoriaRN {
 	}
 	
 	public void apagar(Categoria categoria){
-		new CategoriaDAO().delete(categoria);
+			new CategoriaDAO().delete(categoria);
 	}
 	
 	public Categoria listarPorId(Long id){

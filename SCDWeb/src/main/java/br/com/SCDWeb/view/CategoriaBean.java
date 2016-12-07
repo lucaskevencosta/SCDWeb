@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 
 import br.com.SCDWeb.model.categoria.Categoria;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
+import br.com.SCDWeb.model.equipamento.Equipamento;
 
 /**
  * 
@@ -20,7 +21,16 @@ public class CategoriaBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Categoria categoria = new Categoria();
+	private Equipamento  equipamentos = new Equipamento();
 	
+	public Equipamento getEquipamentos() {
+		return equipamentos;
+	}
+
+	public void setEquipamentos(Equipamento equipamentos) {
+		this.equipamentos = equipamentos;
+	}
+
 	public String actionAtualizar(){
 		return "listagem_Categoria?faces-redirect=true";
 	}
