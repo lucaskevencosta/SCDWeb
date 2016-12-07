@@ -48,13 +48,13 @@ public class EquipamentoRN {
 		
 		periodo = (encontrarAno(dtFinal) - encontrarAno(dtInicial) + 1) * 12;
 		
-		// para dataInicial
+		// cálculo do ano inicial
 		if (encontrarDiaDoMes(dtInicial) <= 15)
 			periodo = periodo - (encontrarMes(dtInicial) - 1);
 		else
 			periodo = periodo - encontrarMes(dtInicial);
 		
-		// para dataFinal
+		// cálculo do ano final
 		if (encontrarDiaDoMes(dtFinal) <= 15)
 			periodo = periodo + (encontrarMes(dtFinal) - 1);
 		else
