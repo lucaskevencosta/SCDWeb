@@ -10,6 +10,12 @@ import java.util.List;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
 import br.com.SCDWeb.util.ConnectionFactory;
 
+/**
+ * 
+ * @author Leonardo
+ *
+ */
+
 public class EquipamentoDAO extends ConnectionFactory{
 
 	Connection con;
