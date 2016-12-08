@@ -32,7 +32,7 @@ public class CategoriaBean implements Serializable{
 	}
 
 	public String actionAtualizar(){
-		return "listagem_Categoria?faces-redirect=true";
+		return "listagem_Categoria";
 	}
 	
 	public String actionApagar(){
@@ -44,11 +44,6 @@ public class CategoriaBean implements Serializable{
 		return new CategoriaRN().listarCategoria();
 	}
 	
-	public String actionNovo(){
-		this.setCategoria(new Categoria());
-		return "listagem_Categoria?faces-redirect=true";
-	}
-
 	public String actionGravar(){
 		new CategoriaRN().salvar(categoria);
 		return "listagem_Categoria?faces-redirect=true";

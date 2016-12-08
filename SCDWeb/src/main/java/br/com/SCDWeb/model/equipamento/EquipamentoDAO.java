@@ -60,13 +60,13 @@ public class EquipamentoDAO extends ConnectionFactory{
 			while (rs.next()){
 				Equipamento eqp = new Equipamento();
 				eqp.setId(rs.getLong("ID"));
-				eqp.setId(rs.getLong("REFERENCIA"));
+				eqp.setReferencia(rs.getInt("REFERENCIA"));
 				eqp.setProduto(rs.getString("PRODUTO"));
 				eqp.setDataDeCompra(rs.getDate("DATA_DE_COMPRA"));
 				eqp.setDataDeVenda(rs.getDate("DATA_DE_VENDA"));
 				eqp.setValorDeCompra(rs.getDouble("VALOR_DE_COMPRA"));
 				eqp.setValorDeVenda(rs.getDouble("VALOR_DE_VENDA"));
-				eqp.setId(rs.getLong("TURNO_DE_TRABALHO"));
+				eqp.setTurnoDeTrabalho(rs.getInt("TURNO_DE_TRABALHO"));
 				eqp.setEstadoDoProduto(rs.getString("ESTADO_DO_PRODUTO"));
 				eqp.setDepreciacao(rs.getInt("DEPRECIACAO"));
 				eqp.setCategoria(new CategoriaRN().listarPorId(rs.getLong("CATEGORIA")));
