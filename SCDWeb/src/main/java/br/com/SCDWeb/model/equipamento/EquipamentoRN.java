@@ -1,10 +1,7 @@
 package br.com.SCDWeb.model.equipamento;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
-import br.com.SCDWeb.model.depreciacao.Depreciacao;
 
 public class EquipamentoRN {
 
