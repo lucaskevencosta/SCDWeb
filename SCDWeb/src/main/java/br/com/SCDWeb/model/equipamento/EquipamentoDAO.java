@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,14 +25,19 @@ public class EquipamentoDAO extends ConnectionFactory {
 
 	public void inserir(Equipamento equipamento) {
 		String sql = "INSERT INTO equipamento(REFERENCIA, PRODUTO, DATA_DE_COMPRA, DATA_DE_VENDA, VALOR_DE_COMPRA, VALOR_DE_VENDA, TURNO_DE_TRABALHO, ESTADO_DO_PRODUTO, DEPRECIACAO, CATEGORIA) "
-				+ "VALUES(?,?,?,null,?,null,?,?,?,?)";
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
 		try {
 			con = openConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, equipamento.getReferencia());
 			ps.setString(2, equipamento.getProduto());
 			ps.setDate(3, new Date(equipamento.getDataDeCompra().getTime()));
-			ps.setDate(4, new Date(equipamento.getDataDeVenda().getTime()));
+			if (equipamento.getDataDeVenda() != null) {
+				java.sql.Date d = new java.sql.Date(equipamento.getDataDeVenda().getTime());
+				ps.setDate(4, d);
+			} else {
+				ps.setNull(4, Types.DATE);
+			}
 			ps.setDouble(5, equipamento.getValorDeCompra());
 			ps.setDouble(6, equipamento.getValorDeVenda());
 			ps.setInt(7, equipamento.getTurnoDeTrabalho());
@@ -108,7 +114,13 @@ public class EquipamentoDAO extends ConnectionFactory {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, equipamento.getProduto());
 			ps.setDate(2, new Date(equipamento.getDataDeCompra().getTime()));
-			ps.setDate(3, new Date(equipamento.getDataDeVenda().getTime()));
+			ps.setDate(3, new Date(equipamento.getDataDeCompra().getTime()));
+			if (equipamento.getDataDeVenda() != null) {
+				java.sql.Date d = new java.sql.Date(equipamento.getDataDeVenda().getTime());
+				ps.setDate(3, d);
+			} else {
+				ps.setNull(3, Types.DATE);
+			}
 			ps.setDouble(4, equipamento.getValorDeCompra());
 			ps.setDouble(5, equipamento.getValorDeVenda());
 			ps.setInt(6, equipamento.getTurnoDeTrabalho());
