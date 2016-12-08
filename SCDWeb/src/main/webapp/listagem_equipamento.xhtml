@@ -17,7 +17,105 @@
 	<ui:insert name="header">
 		<ui:include src="/template/common/commonHeader.xhtml" />
 	</ui:insert>
-	<h1>TESTE</h1>
+	<div class="contentCadastro" align="center">
+		<h2>
+			<h:outputLabel value="#{msgs.eqpPageTitle}" />
+		</h2>
+		<h:form>
+			<h:dataTable value="#{viewEquipamento.todosEquipamentos}"
+				var="objEquipamento" border="1">
+				<f:facet name="header">
+					<h:outputLabel value="#{msgs.eqpPageTableTitle}" />
+				</f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="ID" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Referencia" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.referencia}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Produto" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.produto}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Data Compra" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.dataDeCompra}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Data Venda" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.dataDeVenda}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Valor Compra" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.valorDeCompra}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Valor Venda" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.valorDeVenda}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Turnos" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.turnoDeTrabalho}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Tipo" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.estadoDoProduto}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Depreciação" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.depreciacao}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Categoria" />
+					</f:facet>
+					<h:outputLabel value="#{objEquipamento.categoria.categoria}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Excluir" />
+					</f:facet>
+					<h:commandLink action="#{viewEquipamento.actionApagar}">
+						<h:graphicImage library="img" name="garbage.png" />
+						<f:setPropertyActionListener value="#{objEquipamento}"
+							target="#{viewEquipamento.equipamento}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Alterar" />
+					</f:facet>
+					<h:commandLink action="#{viewEquipamento.actionAtualizar}">
+						<h:graphicImage library="img" name="edit.png" />
+						<f:setPropertyActionListener value="#{objEquipamento}"
+							target="#{viewEquipamento.equipamento}" />
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</div>
 	<div class="footer" align="center">
 		<ui:insert name="header">
 			<ui:include src="/template/common/commonFooter.xhtml" />

@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
+import br.com.SCDWeb.model.categoria.Categoria;
+import br.com.SCDWeb.model.categoria.CategoriaRN;
 import br.com.SCDWeb.model.equipamento.Equipamento;
 import br.com.SCDWeb.model.equipamento.EquipamentoRN;
+
 /**
  * 
  * @author Leonardo
@@ -20,11 +23,19 @@ public class EquipamentoBean implements Serializable{
 
 	private Equipamento equipamento = new Equipamento();
 	
+	public String actionAtualizar(){
+		return "cadastro_equipamento";
+	}
+	
 	public String actionApagar(){
 		new EquipamentoRN().apagar(equipamento);
 		return "listagem_equipamento?faces-redirect=true";
 	}
 
+	public List<Categoria> getTodasCategorias(){
+		return new CategoriaRN().listarCategoria();
+	}
+	
 	public List<Equipamento> getTodosEquipamentos(){
 		return new EquipamentoRN().listarTodos();
 	}

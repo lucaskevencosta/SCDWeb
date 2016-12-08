@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import br.com.SCDWeb.util.ConnectionFactory;
 
@@ -20,24 +22,25 @@ public class CategoriaDAO extends ConnectionFactory{
 	ResultSet rs;
 	private Categoria cate = new Categoria();
 	
-	public void inserir(Categoria categoria){
-		String sql = "INSERT INTO categorias(categoria, descricao) VALUES(?,?)";
-		
+	public void salvar(Categoria categoria){
 		try {
-			con = openConnection();
-			ps = con.prepareStatement(sql);
-			
+			Connection conexao = openConnection();
+			PreparedStatement ps;
+			if (categoria.getId() == null){
+				ps = conexao.prepareStatement("INSERT INTO categorias(categoria, descricao) VALUES(?,?)");
+			} else {
+				ps = conexao.prepareStatement("UPDATE categorias SET categoria=?, descricao=? WHERE id=?");
+				ps.setLong(3, categoria.getId());
+			}
 			ps.setString(1, categoria.getCategoria());
 			ps.setString(2, categoria.getDescricao());
 			ps.executeUpdate();
 		} catch (Exception e) {
-			System.err.println("---------------------");
-			System.err.println("Erro: " + e.getMessage());
-			e.printStackTrace();
-			System.err.println("---------------------");
+			Logger.getLogger(CategoriaDAO.class.getName()).log(Level.SEVERE, null, e);
 		} finally {
 			closeConnection(con, ps);
 		}
+		
 	}
 	
 	public List<Categoria> selectAll(){
@@ -114,7 +117,7 @@ public class CategoriaDAO extends ConnectionFactory{
 			categoria = new Categoria();
 			if (rs.next()) {
 				categoria.setId(rs.getLong("id"));
-				categoria.setDescricao(rs.getString("categoria"));
+				categoria.setCategoria(rs.getString("categoria"));
 				categoria.setDescricao(rs.getString("descricao"));
 			}
 		} catch (Exception e) {

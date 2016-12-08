@@ -16,15 +16,15 @@ import br.com.SCDWeb.util.ConnectionFactory;
  *
  */
 
-public class EquipamentoDAO extends ConnectionFactory{
+public class EquipamentoDAO extends ConnectionFactory {
 
 	Connection con;
 	PreparedStatement ps;
 	ResultSet rs;
-	
-	public void inserir(Equipamento equipamento){
+
+	public void inserir(Equipamento equipamento) {
 		String sql = "INSERT INTO equipamento(REFERENCIA, PRODUTO, DATA_DE_COMPRA, DATA_DE_VENDA, VALOR_DE_COMPRA, VALOR_DE_VENDA, TURNO_DE_TRABALHO, ESTADO_DO_PRODUTO, DEPRECIACAO, CATEGORIA) "
-				+ "VALUES(?,?,?,?,?,?,?,?)";
+				+ "VALUES(?,?,?,null,?,null,?,?,?,?)";
 		try {
 			con = openConnection();
 			ps = con.prepareStatement(sql);
@@ -48,16 +48,16 @@ public class EquipamentoDAO extends ConnectionFactory{
 			closeConnection(con, ps);
 		}
 	}
-	
-	public List<Equipamento> selectAll(){
+
+	public List<Equipamento> selectAll() {
 		List<Equipamento> lsEquipamento = null;
-		String sql = "SELECT * FROM equipamento ORDER BY id";
+		String sql = "SELECT ID, REFERENCIA, PRODUTO, DATA_DE_COMPRA, DATA_DE_VENDA, VALOR_DE_COMPRA, VALOR_DE_VENDA, TURNO_DE_TRABALHO, ESTADO_DO_PRODUTO, DEPRECIACAO, CATEGORIA FROM equipamento ORDER BY id";
 		try {
 			con = openConnection();
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			lsEquipamento = new ArrayList<>();
-			while (rs.next()){
+			while (rs.next()) {
 				Equipamento eqp = new Equipamento();
 				eqp.setId(rs.getLong("ID"));
 				eqp.setReferencia(rs.getInt("REFERENCIA"));
@@ -70,6 +70,7 @@ public class EquipamentoDAO extends ConnectionFactory{
 				eqp.setEstadoDoProduto(rs.getString("ESTADO_DO_PRODUTO"));
 				eqp.setDepreciacao(rs.getInt("DEPRECIACAO"));
 				eqp.setCategoria(new CategoriaRN().listarPorId(rs.getLong("CATEGORIA")));
+				lsEquipamento.add(eqp);
 			}
 		} catch (Exception e) {
 			System.err.println("---------------------");
@@ -81,8 +82,8 @@ public class EquipamentoDAO extends ConnectionFactory{
 		}
 		return lsEquipamento;
 	}
-	
-	public void delete(Equipamento equipamento){
+
+	public void delete(Equipamento equipamento) {
 		String sql = "DELETE FROM equipamento WHERE id = ?";
 		try {
 			con = openConnection();
@@ -98,10 +99,10 @@ public class EquipamentoDAO extends ConnectionFactory{
 			closeConnection(con, ps);
 		}
 	}
-	
-	public void update(Equipamento equipamento){
+
+	public void update(Equipamento equipamento) {
 		String sql = "UPDATE equipamento SET PRODUTO = ?, DATA_DE_COMPRA = ?, DATA_DE_VENDA = ?, VALOR_DE_COMPRA =  ?, VALOR_DE_VENDA = ?, TURNO_DE_TRABALHO = ?, ESTADO_DO_PRODUTO = ?, DEPRECIACAO  = ?, CATEGORIA =  ? WHERE ID = ?";
-		
+
 		try {
 			con = openConnection();
 			ps = con.prepareStatement(sql);
@@ -114,6 +115,7 @@ public class EquipamentoDAO extends ConnectionFactory{
 			ps.setString(7, equipamento.getEstadoDoProduto());
 			ps.setInt(8, equipamento.getDepreciacao());
 			ps.setLong(9, equipamento.getCategoria().getId());
+			ps.setLong(10, equipamento.getId());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.err.println("---------------------");

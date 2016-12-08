@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:insert name="header">
+		<ui:include src="/template/common/commonHeader.xhtml" />
+	</ui:insert>
+	<br />
+	<div class="contentCadastroEquipa" align="center">
+		<h2>
+			<h:outputLabel value="#{msgs.cadPageTitle}" />
+		</h2>
+		<h:form>
+			<h:inputHidden value="#{viewEquipamento.equipamento.id}" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.referencia}" styleClass="input" />
+				
+				<h:outputLabel value="#{msgs.cadProdutoPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.produto}" styleClass="input" />
+				
+				<h:outputLabel value="#{msgs.carCategoriaPrompt}"
+					styleClass="etiquetas" />
+					
+				<h:selectOneMenu value="#{viewEquipamento.equipamento.categoria.id}"
+					styleClass="input">
+					<f:selectItem itemLabel="Selecione" />
+					<f:selectItems value="#{viewEquipamento.todasCategorias}"
+						var="objCategoria" itemLabel="#{objCategoria.categoria}"
+						itemValue="#{objCategoria.id}" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.dataDeCompra}" styleClass="input">
+					<f:convertDateTime />
+				</h:inputText>
+				
+				<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.valorDeCompra}" styleClass="input" />
+				
+				<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}"
+					styleClass="etiquetas" />
+				<h:selectOneMenu styleClass="input" value="#{viewEquipamento.equipamento.estadoDoProduto}">
+					<f:selectItem itemLabel="Selecione" itemValue="" />
+					<f:selectItem itemLabel="Novo" itemValue="Novo" />
+					<f:selectItem itemLabel="Usado" itemValue="Usado" />
+				</h:selectOneMenu>
+				
+				<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}"
+					styleClass="etiquetas" />
+					<h:selectOneMenu styleClass="input" value="#{viewEquipamento.equipamento.turnoDeTrabalho}">
+						<f:selectItem itemLabel="Selecione" itemValue="0"/>
+						<f:selectItem itemValue="1" itemLabel="Um de 8 horas"/>
+						<f:selectItem itemValue="2" itemLabel="Dois de 8 horas"/>
+						<f:selectItem itemValue="3" itemLabel="Três de 8 horas"/>
+					</h:selectOneMenu>
+				
+				<h:outputLabel value="#{msgs.cadAnosDepreciacao}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.depreciacao}" styleClass="input" />
+				
+				<h:outputLabel value="#{msgs.cadDataVendaPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.dataDeVenda}" styleClass="input">
+					<f:convertDateTime/>
+				</h:inputText>
+				
+				<h:outputLabel value="#{msgs.cadValorVendaPrompt}"
+					styleClass="etiquetas" />
+				<h:inputText value="#{viewEquipamento.equipamento.valorDeVenda}" styleClass="input" />
+				
+			</h:panelGrid>
+			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
+				styleClass="buttonCadaEquipa" action="#{viewEquipamento.actionSalvar}" />
+		</h:form>
+	</div>
+	<div class="footer" align="center">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonFooter.xhtml" />
+		</ui:insert>
+	</div>
+</h:body>
+</html>

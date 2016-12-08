@@ -10,14 +10,14 @@ import java.util.List;
 public class CategoriaRN {
 
 	public void salvar(Categoria categoria){
-		if (categoria.getId() == null){
-			new CategoriaDAO().inserir(categoria);
-		} else {
-			new CategoriaDAO().update(categoria);
-		}
+		new CategoriaDAO().salvar(categoria);
 	}
 	
 	public List<Categoria> listarCategoria(){
+		return new CategoriaDAO().selectAll();
+	}
+	
+	public List<Categoria> listarTodasCategoria(){
 		return new CategoriaDAO().selectAll();
 	}
 	
