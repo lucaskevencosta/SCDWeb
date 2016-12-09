@@ -24,7 +24,8 @@
 		</h2>
 		<h:form>
 			<h:dataTable value="#{viewCategoria.todasCategorias}"
-				var="objCategoria" border="1" styleClass="table">
+				var="objCategoria" styleClass="table" headerClass="cabecalho"
+				columnClasses="ultimo,primeiro,ultimo,primeiro,ultimo">
 				<f:facet name="header">
 					<h:outputLabel value="#{msgs.catPageTableTitle}" />
 				</f:facet>

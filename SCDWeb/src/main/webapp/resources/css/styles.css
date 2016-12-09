@@ -14,9 +14,26 @@ body {
 	height: 410px;
 }
 
-.columns{
-	color: #4E94AB;
-	width: 10em;
+.cabecalho {
+	text-align: center;
+	color: Snow;
+	background: #4E94AB;
+	font-size: 13pt;
+	font-weight: normal;
+}
+
+.cabecalho:HOVER{
+	background: #346372;
+}
+
+.primeiro {
+	text-align: center;
+	background: #c0c0c0;
+}
+
+.ultimo {
+	text-align: center;
+	background: #a7a7a7;
 }
 
 .msgErro {
@@ -36,10 +53,16 @@ body {
 
 .linkCad:HOVER {
 	text-decoration: underline;
-	color: #2740e7;
+	color: #346372;
 }
 
 .table {
+	text-align: center;
+	font-size: 11pt;
+	width: 40%;
+}
+
+.tableEqp {
 	text-align: center;
 	font-size: 11pt;
 }
