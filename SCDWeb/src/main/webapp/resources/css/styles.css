@@ -253,3 +253,8 @@ body {
 	margin-top: 1%;
 	margin-left: 10%;
 }
+
+.contentFormularioDeprec {
+	padding-top: 0px;
+	height: 500px;
+}

@@ -32,10 +32,10 @@ public class EquipamentoBean implements Serializable{
 		return "listagem_equipamento?faces-redirect=true";
 	}
 	
-	//public String actionChamarCalculo(){
-	//	new EquipamentoRN().listarPorId(equipamento.getId());
-	//	return "formulario_depreciacao?faces-redirect=true";
-	//}
+	public String actionChamarCalculo(){
+		new EquipamentoRN().listarPorId(equipamento.getId());
+		return "formulario_depreciacao";
+	}
 
 	public List<Categoria> getTodasCategorias(){
 		return new CategoriaRN().listarCategoria();
