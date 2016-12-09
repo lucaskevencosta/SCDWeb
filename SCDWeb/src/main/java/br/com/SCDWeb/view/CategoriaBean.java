@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import br.com.SCDWeb.model.categoria.Categoria;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
 
+
 /**
  * 
  * @author Leonardo

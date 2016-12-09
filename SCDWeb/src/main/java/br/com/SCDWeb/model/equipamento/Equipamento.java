@@ -21,7 +21,7 @@ public class Equipamento implements Serializable {
 	private String produto;
 	private Date dataDeCompra;
 	private Date dataDeVenda;
-	private Double valorDeCompra;
+	private double valorDeCompra;
 	private double valorDeVenda;
 	private Integer turnoDeTrabalho;
 	private String estadoDoProduto;
