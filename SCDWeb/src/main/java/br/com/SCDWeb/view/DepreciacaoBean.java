@@ -33,6 +33,10 @@ public class DepreciacaoBean implements Serializable {
 	}
 	
 	public void calcularDepreciacao(Equipamento equipamento) {
+		depreciacao = new Depreciacao();
 		depreciacao = new DepreciacaoRN().calcularDepreciacao(equipamento);
+		System.out.println("DA: " + depreciacao.getDa());
+		System.out.println("VC: " + depreciacao.getVc());
+		System.out.println("GP: " + depreciacao.getGp());
 	}
 }

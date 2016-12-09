@@ -68,4 +68,8 @@ public class EquipamentoBean implements Serializable{
 	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
 	}
+	
+	public String actionInicio() {
+		return "listagem_equipamento?faces-redirect=true";
+	}
 }
