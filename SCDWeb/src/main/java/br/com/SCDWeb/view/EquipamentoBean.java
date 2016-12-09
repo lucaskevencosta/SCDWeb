@@ -27,6 +27,11 @@ public class EquipamentoBean implements Serializable{
 		return "cadastro_equipamento";
 	}
 	
+	public String actionCalcular() {
+		
+		return "";
+	}
+	
 	public String actionApagar(){
 		new EquipamentoRN().apagar(equipamento);
 		return "listagem_equipamento?faces-redirect=true";
