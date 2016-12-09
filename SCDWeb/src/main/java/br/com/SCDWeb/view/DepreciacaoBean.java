@@ -23,7 +23,6 @@ public class DepreciacaoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Depreciacao depreciacao = new Depreciacao();
-	private Equipamento eq = new Equipamento();
 	
 	public Depreciacao getDepreciacao() {
 		return depreciacao;
@@ -35,13 +34,5 @@ public class DepreciacaoBean implements Serializable {
 	
 	public void calcularDepreciacao(Equipamento equipamento) {
 		depreciacao = new DepreciacaoRN().calcularDepreciacao(equipamento);
-	}
-
-	public Equipamento getEq() {
-		return eq;
-	}
-
-	public void setEq(Equipamento eq) {
-		this.eq = eq;
 	}
 }

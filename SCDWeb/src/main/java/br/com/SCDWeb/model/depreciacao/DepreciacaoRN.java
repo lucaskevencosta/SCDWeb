@@ -30,6 +30,8 @@ public class DepreciacaoRN {
 		// valor residual
 		Double vr = 0.0;
 		Double turno = null;
+		Double anos;
+		
 		
 		// definição do turno de trabalho
 		// se turno = 1 multiplica-se a taxa por 1
@@ -42,14 +44,17 @@ public class DepreciacaoRN {
 		else if (equipamento.getTurnoDeTrabalho() == 3)
 			turno = 2.0;
 		
+		
 		// levantamento das incógnitas
 		cb = equipamento.getValorDeCompra();
-		i = (double) (equipamento.getDepreciacao() / 100) * turno;
-		//n = calcularPeriodo(equipamento);
+		anos = (double) equipamento.getDepreciacao();
+		i = (100 / anos) * turno;
+		n = calcularPeriodo(equipamento);
 		vr = equipamento.getValorResidual();
+		vr = (vr/100) * cb;
 		
 		// fórmula da depreciação acumulada
-		da = ((cb - vr) * i * n) / 12;
+		da = ((cb - vr) * (i/100) * n) / 12;
 		
 		// fórmula do valor contábil
 		vc = cb - da;
@@ -72,7 +77,7 @@ public class DepreciacaoRN {
 		calInicial.setTime(equipamento.getDataDeCompra());
 		calFinal.setTime(equipamento.getDataDeVenda());
 
-		periodo = (calInicial.get(Calendar.YEAR) - calFinal.get(Calendar.YEAR)) * 12;
+		periodo = (calFinal.get(Calendar.YEAR) - calInicial.get(Calendar.YEAR)) * 12;
 
 		// cálculo do ano inicial
 		if (calInicial.get(Calendar.DAY_OF_MONTH) <= 15)
