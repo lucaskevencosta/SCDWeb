@@ -5,7 +5,6 @@ package br.com.SCDWeb.model.depreciacao;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import br.com.SCDWeb.model.equipamento.Equipamento;
 
@@ -59,26 +58,35 @@ public class DepreciacaoRN {
 		return periodo;
 	}*/
 
+	@SuppressWarnings("static-access")
 	public int calcularPeriodo(Equipamento equipamento) {
-		Date dtInicial = equipamento.getDataDeCompra();
-		Date dtFinal = equipamento.getDataDeVenda();
-		GregorianCalendar gcInicial = new GregorianCalendar();
+		Calendar calInicial = Calendar.getInstance();
+		Calendar calFinal = Calendar.getInstance();
 		int periodo = 0;
+		
+		calInicial.setTime(equipamento.getDataDeCompra());
+		calFinal.setTime(equipamento.getDataDeVenda());
 
-		periodo = (gc.get(GregorianCalendar.YEAR) - gcFinal.YEAR) * 12;
+		periodo = (calInicial.get(Calendar.YEAR) - calFinal.get(Calendar.YEAR)) * 12;
 
 		// cálculo do ano inicial
-		if (gcInicial.DAY_OF_MONTH <= 15)
-			periodo = periodo - (gcInicial.MONTH - 1);
+		if (calInicial.DAY_OF_MONTH <= 15)
+			periodo = periodo - (calInicial.MONTH - 1);
 		else
-			periodo = periodo - gcInicial.MONTH;
+			periodo = periodo - calInicial.MONTH;
 
 		// cálculo do ano final
-		if (gcFinal.DAY_OF_MONTH <= 15)
-			periodo = periodo + (gcFinal.MONTH - 1);
+		if (calFinal.DAY_OF_MONTH <= 15)
+			periodo = periodo + (calFinal.MONTH - 1);
 		else
-			periodo = periodo + gcFinal.MONTH;
+			periodo = periodo + calFinal.MONTH;
 
 		return periodo;
+	}
+	
+	public Calendar toCalendar(Date dt) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dt);
+		return cal;
 	}
 }
