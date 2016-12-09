@@ -51,7 +51,7 @@
 						<h:outputLabel value="Excluir" />
 					</f:facet>
 					<h:commandLink action="#{viewCategoria.actionApagar}">
-						<h:graphicImage library="img" name="garbage.png" />
+						<h:graphicImage library="img" name="open-trash-can.png" />
 						<f:setPropertyActionListener value="#{objCategoria}"
 							target="#{viewCategoria.categoria}" />
 					</h:commandLink>
@@ -67,7 +67,7 @@
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
-			<h:outputLabel value="#{viewCategoria.categoria.msg}"/>
+			<h:outputLabel value="#{viewCategoria.categoria.msg}" />
 			<ui:insert>
 				<ui:include src="template/common/commonCadastro_Categoria.xhtml" />
 			</ui:insert>

@@ -23,7 +23,7 @@
 		</h2>
 		<h:form>
 			<h:dataTable value="#{viewEquipamento.todosEquipamentos}"
-				var="objEquipamento" border="1">
+				var="objEquipamento" border="1" styleClass="table" >
 				<f:facet name="header">
 					<h:outputLabel value="#{msgs.eqpPageTableTitle}" />
 				</f:facet>
@@ -35,7 +35,7 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputLabel value="Referencia" />
+						<h:outputLabel value="Código" />
 					</f:facet>
 					<h:outputLabel value="#{objEquipamento.referencia}" />
 				</h:column>
@@ -71,7 +71,7 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputLabel value="Turnos" />
+						<h:outputLabel value="Turno" />
 					</f:facet>
 					<h:outputLabel value="#{objEquipamento.turnoDeTrabalho}" />
 				</h:column>
@@ -98,7 +98,7 @@
 						<h:outputLabel value="Excluir" />
 					</f:facet>
 					<h:commandLink action="#{viewEquipamento.actionApagar}">
-						<h:graphicImage library="img" name="garbage.png" />
+						<h:graphicImage library="img" name="open-trash-can.png" />
 						<f:setPropertyActionListener value="#{objEquipamento}"
 							target="#{viewEquipamento.equipamento}" />
 					</h:commandLink>
@@ -111,6 +111,16 @@
 						<h:graphicImage library="img" name="edit.png" />
 						<f:setPropertyActionListener value="#{objEquipamento}"
 							target="#{viewEquipamento.equipamento}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Calcular" />
+					</f:facet>
+					<h:commandLink action="ola">
+						<h:graphicImage library="img" name="calculator-interface-symbol.png" />
+						<f:setPropertyActionListener value=""
+							target="" />
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>

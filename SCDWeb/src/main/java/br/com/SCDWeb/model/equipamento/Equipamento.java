@@ -22,7 +22,7 @@ public class Equipamento implements Serializable {
 	private Date dataDeCompra;
 	private Date dataDeVenda;
 	private Double valorDeCompra;
-	private Double valorDeVenda;
+	private double valorDeVenda;
 	private Integer turnoDeTrabalho;
 	private String estadoDoProduto;
 	private Integer depreciacao;
@@ -64,12 +64,7 @@ public class Equipamento implements Serializable {
 	public void setValorDeCompra(Double valorDeCompra) {
 		this.valorDeCompra = valorDeCompra;
 	}
-	public Double getValorDeVenda() {
-		return valorDeVenda;
-	}
-	public void setValorDeVenda(Double valorDeVenda) {
-		this.valorDeVenda = valorDeVenda;
-	}
+	
 	public Integer getTurnoDeTrabalho() {
 		return turnoDeTrabalho;
 	}
@@ -94,5 +89,11 @@ public class Equipamento implements Serializable {
 	}
 	public void setDepreciacao(Integer depreciacao) {
 		this.depreciacao = depreciacao;
+	}
+	public double getValorDeVenda() {
+		return valorDeVenda;
+	}
+	public void setValorDeVenda(double valorDeVenda) {
+		this.valorDeVenda = valorDeVenda;
 	}
 }

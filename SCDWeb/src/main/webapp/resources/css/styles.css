@@ -23,6 +23,9 @@ body {
 	list-style: none;
 }
 
+.table{
+	text-align: center;
+}
 
 .bemVindo{
 	font-weight: bold;
