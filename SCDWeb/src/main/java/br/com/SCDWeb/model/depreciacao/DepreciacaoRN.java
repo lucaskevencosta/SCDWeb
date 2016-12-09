@@ -4,7 +4,6 @@
 package br.com.SCDWeb.model.depreciacao;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import br.com.SCDWeb.model.equipamento.Equipamento;
 
@@ -31,34 +30,40 @@ public class DepreciacaoRN {
 		// valor residual
 		Double vr = 0.0;
 		Double turno = null;
-
+		
+		// definição do turno de trabalho
+		// se turno = 1 multiplica-se a taxa por 1
+		//			= 2							 1.5
+		//			= 3							 2.0
 		if (equipamento.getTurnoDeTrabalho() == 1)
 			turno = 1.0;
 		else if (equipamento.getTurnoDeTrabalho() == 2)
 			turno = 1.5;
 		else if (equipamento.getTurnoDeTrabalho() == 3)
 			turno = 2.0;
-
+		
+		// levantamento das incógnitas
 		cb = equipamento.getValorDeCompra();
 		i = (double) (equipamento.getDepreciacao() / 100) * turno;
 		//n = calcularPeriodo(equipamento);
 		vr = equipamento.getValorResidual();
-
+		
+		// fórmula da depreciação acumulada
 		da = ((cb - vr) * i * n) / 12;
-
+		
+		// fórmula do valor contábil
 		vc = cb - da;
-
+		
+		// fórmula do ganho ou perda
 		gp = equipamento.getValorDeVenda() - vc;
+		
+		depreciacao.setDa(da);
+		depreciacao.setGp(gp);
+		depreciacao.setVc(vc);
 
 		return depreciacao;
 	}
-	
-	/*public int calcularPeriodo(Equipamento equipamento) {
-		int periodo = 0;
-		return periodo;
-	}*/
 
-	@SuppressWarnings("static-access")
 	public int calcularPeriodo(Equipamento equipamento) {
 		Calendar calInicial = Calendar.getInstance();
 		Calendar calFinal = Calendar.getInstance();
@@ -70,23 +75,17 @@ public class DepreciacaoRN {
 		periodo = (calInicial.get(Calendar.YEAR) - calFinal.get(Calendar.YEAR)) * 12;
 
 		// cálculo do ano inicial
-		if (calInicial.DAY_OF_MONTH <= 15)
-			periodo = periodo - (calInicial.MONTH - 1);
+		if (calInicial.get(Calendar.DAY_OF_MONTH) <= 15)
+			periodo = periodo - (calInicial.get(Calendar.MONTH) - 1);
 		else
-			periodo = periodo - calInicial.MONTH;
+			periodo = periodo - calInicial.get(Calendar.MONTH);
 
 		// cálculo do ano final
-		if (calFinal.DAY_OF_MONTH <= 15)
-			periodo = periodo + (calFinal.MONTH - 1);
+		if (calFinal.get(Calendar.DAY_OF_MONTH) <= 15)
+			periodo = periodo + (calFinal.get(Calendar.MONTH) - 1);
 		else
-			periodo = periodo + calFinal.MONTH;
+			periodo = periodo + calFinal.get(Calendar.MONTH);
 
 		return periodo;
-	}
-	
-	public Calendar toCalendar(Date dt) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(dt);
-		return cal;
 	}
 }

@@ -13,8 +13,8 @@ public class EquipamentoRN {
 		return new EquipamentoDAO().selectAll();
 	}
 	
-	public List<Equipamento> listaCalc(){
-		return new EquipamentoDAO().selectCalc();
+	public Equipamento listarPorId (Long id) {
+		return new EquipamentoDAO().selectById(id);
 	}
 	
 	public void salvar(Equipamento equipamento){

@@ -22,84 +22,12 @@
 			<h:outputLabel value="#{msgs.formularioDepreciacaoTitle}" />
 		</h2>
 		<h:form>
-			<h:inputHidden value="#{viewDepreciacao.equipamento.id}" />
-			<h:panelGrid columns="2" >
-				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.referencia}"
-					styleClass="input" disabled="true" />
-
-				<h:outputLabel value="#{msgs.cadProdutoPrompt}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.produto}"
-					styleClass="input" disabled="true" />
-
-				<h:outputLabel value="#{msgs.carCategoriaPrompt}"
-					styleClass="etiquetas" />
-					<h:inputText value="#{viewEquipamento.equipamento.produto}"
-					styleClass="input" disabled="true" />
-
-				<h:selectOneMenu value="#{viewEquipamento.equipamento.categoria.id}"
-					styleClass="input">
-					<f:selectItem itemLabel="Selecione" />
-					<f:selectItems value="#{viewEquipamento.todasCategorias}"
-						var="objCategoria" itemLabel="#{objCategoria.categoria}"
-						itemValue="#{objCategoria.id}" />
-				</h:selectOneMenu>
-
-				<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.dataDeCompra}"
-					styleClass="input">
-					<f:convertDateTime />
-				</h:inputText>
-
-				<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.valorDeCompra}"
-					styleClass="input" />
-
-				<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}"
-					styleClass="etiquetas" />
-				<h:selectOneMenu styleClass="input"
-					value="#{viewEquipamento.equipamento.estadoDoProduto}">
-					<f:selectItem itemLabel="Selecione" itemValue="" />
-					<f:selectItem itemLabel="Novo" itemValue="Novo" />
-					<f:selectItem itemLabel="Usado" itemValue="Usado" />
-				</h:selectOneMenu>
-
-				<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}"
-					styleClass="etiquetas" />
-				<h:selectOneMenu styleClass="input"
-					value="#{viewEquipamento.equipamento.turnoDeTrabalho}">
-					<f:selectItem itemLabel="Selecione" itemValue="0" />
-					<f:selectItem itemValue="1" itemLabel="Um de 8 horas" />
-					<f:selectItem itemValue="2" itemLabel="Dois de 8 horas" />
-					<f:selectItem itemValue="3" itemLabel="Três de 8 horas" />
-				</h:selectOneMenu>
-
-				<h:outputLabel value="#{msgs.cadAnosDepreciacao}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.depreciacao}"
-					styleClass="input" />
-
-				<h:outputLabel value="#{msgs.cadDataVendaPrompt}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.dataDeVenda}"
-					styleClass="input">
-					<f:convertDateTime />
-				</h:inputText>
-
-				<h:outputLabel value="#{msgs.cadValorVendaPrompt}"
-					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.valorDeVenda}"
-					styleClass="input" />
-
+			<h:inputHidden value="#{viewEquipamento.equipamento.id}" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{viewEquipamento.}" />
 			</h:panelGrid>
-			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
-				styleClass="buttonCadaEquipa"
-				action="#{viewEquipamento.actionSalvar}" />
 		</h:form>
+
 	</div>
 	<div class="footer" align="center">
 		<ui:insert name="header">

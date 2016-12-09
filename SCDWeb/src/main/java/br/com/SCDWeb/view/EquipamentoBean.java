@@ -27,19 +27,15 @@ public class EquipamentoBean implements Serializable{
 		return "cadastro_equipamento";
 	}
 	
-	public List<Equipamento> getListCal(){
-		return new EquipamentoRN().listaCalc();
-	}
-	
 	public String actionApagar(){
 		new EquipamentoRN().apagar(equipamento);
 		return "listagem_equipamento?faces-redirect=true";
 	}
 	
-	public String actionChamarCalculo(){
-		new DepreciacaoBean().prepararCalculo(equipamento);
-		return "formulario_depreciacao?faces-redirect=true";
-	}
+	//public String actionChamarCalculo(){
+	//	new EquipamentoRN().listarPorId(equipamento.getId());
+	//	return "formulario_depreciacao?faces-redirect=true";
+	//}
 
 	public List<Categoria> getTodasCategorias(){
 		return new CategoriaRN().listarCategoria();
