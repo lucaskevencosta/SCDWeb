@@ -13,6 +13,10 @@ public class EquipamentoRN {
 		return new EquipamentoDAO().selectAll();
 	}
 	
+	public List<Equipamento> listaCalc(){
+		return new EquipamentoDAO().selectCalc();
+	}
+	
 	public void salvar(Equipamento equipamento){
 		if (equipamento.getId() == null) {
 			new EquipamentoDAO().inserir(equipamento);

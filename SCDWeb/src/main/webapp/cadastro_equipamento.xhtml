@@ -7,7 +7,10 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-
+	<title>#{msgs.layoutWindowTitle}</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </h:head>
 <h:body>
 	<ui:insert name="header">
@@ -23,15 +26,17 @@
 			<h:panelGrid columns="2">
 				<h:outputLabel value="#{msgs.cadCodProdutoPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.referencia}" styleClass="input" />
-				
+				<h:inputText value="#{viewEquipamento.equipamento.referencia}"
+					styleClass="input" />
+
 				<h:outputLabel value="#{msgs.cadProdutoPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.produto}" styleClass="input" />
-				
+				<h:inputText value="#{viewEquipamento.equipamento.produto}"
+					styleClass="input" />
+
 				<h:outputLabel value="#{msgs.carCategoriaPrompt}"
 					styleClass="etiquetas" />
-					
+
 				<h:selectOneMenu value="#{viewEquipamento.equipamento.categoria.id}"
 					styleClass="input">
 					<f:selectItem itemLabel="Selecione" />
@@ -42,48 +47,56 @@
 
 				<h:outputLabel value="#{msgs.cadDataAquisicaoPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.dataDeCompra}" styleClass="input">
+				<h:inputText value="#{viewEquipamento.equipamento.dataDeCompra}"
+					styleClass="input">
 					<f:convertDateTime />
 				</h:inputText>
-				
+
 				<h:outputLabel value="#{msgs.cadValorAquisicaoPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.valorDeCompra}" styleClass="input" />
-				
+				<h:inputText value="#{viewEquipamento.equipamento.valorDeCompra}"
+					styleClass="input" />
+
 				<h:outputLabel value="#{msgs.cadTipoProdutoPrompt}"
 					styleClass="etiquetas" />
-				<h:selectOneMenu styleClass="input" value="#{viewEquipamento.equipamento.estadoDoProduto}">
+				<h:selectOneMenu styleClass="input"
+					value="#{viewEquipamento.equipamento.estadoDoProduto}">
 					<f:selectItem itemLabel="Selecione" itemValue="" />
 					<f:selectItem itemLabel="Novo" itemValue="Novo" />
 					<f:selectItem itemLabel="Usado" itemValue="Usado" />
 				</h:selectOneMenu>
-				
+
 				<h:outputLabel value="#{msgs.cadTurnoHrasPrompt}"
 					styleClass="etiquetas" />
-					<h:selectOneMenu styleClass="input" value="#{viewEquipamento.equipamento.turnoDeTrabalho}">
-						<f:selectItem itemLabel="Selecione" itemValue="0"/>
-						<f:selectItem itemValue="1" itemLabel="Um de 8 horas"/>
-						<f:selectItem itemValue="2" itemLabel="Dois de 8 horas"/>
-						<f:selectItem itemValue="3" itemLabel="Três de 8 horas"/>
-					</h:selectOneMenu>
-				
+				<h:selectOneMenu styleClass="input"
+					value="#{viewEquipamento.equipamento.turnoDeTrabalho}">
+					<f:selectItem itemLabel="Selecione" itemValue="0" />
+					<f:selectItem itemValue="1" itemLabel="Um de 8 horas" />
+					<f:selectItem itemValue="2" itemLabel="Dois de 8 horas" />
+					<f:selectItem itemValue="3" itemLabel="Três de 8 horas" />
+				</h:selectOneMenu>
+
 				<h:outputLabel value="#{msgs.cadAnosDepreciacao}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.depreciacao}" styleClass="input" />
-				
+				<h:inputText value="#{viewEquipamento.equipamento.depreciacao}"
+					styleClass="input" />
+
 				<h:outputLabel value="#{msgs.cadDataVendaPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.dataDeVenda}" styleClass="input">
-					<f:convertDateTime/>
+				<h:inputText value="#{viewEquipamento.equipamento.dataDeVenda}"
+					styleClass="input">
+					<f:convertDateTime />
 				</h:inputText>
-				
+
 				<h:outputLabel value="#{msgs.cadValorVendaPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewEquipamento.equipamento.valorDeVenda}" styleClass="input" />
-				
+				<h:inputText value="#{viewEquipamento.equipamento.valorDeVenda}"
+					styleClass="input" />
+
 			</h:panelGrid>
 			<h:commandButton value="#{msgs.cadBotaoCadPrompt}"
-				styleClass="buttonCadaEquipa" action="#{viewEquipamento.actionSalvar}" />
+				styleClass="buttonCadaEquipa"
+				action="#{viewEquipamento.actionSalvar}" />
 		</h:form>
 	</div>
 	<div class="footer" align="center">

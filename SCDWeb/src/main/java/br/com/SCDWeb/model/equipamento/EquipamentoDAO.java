@@ -55,6 +55,37 @@ public class EquipamentoDAO extends ConnectionFactory {
 		}
 	}
 
+	//Metodo para retornar os valoes para a tela de calculo
+	public List<Equipamento> selectCalc(){
+		List<Equipamento> lsCalEquipamento = null;
+		String sql = "SELECT REFERENCIA, PRODUTO, VALOR_DE_COMPRA, DATA_DE_COMPRA, DATA_DE_VENDA, TURNO_DE_TRABALHO, DEPRECIACAO FROM equipamento";
+		try {
+			con = openConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			lsCalEquipamento = new ArrayList<>();
+			while (rs.next()) {
+				Equipamento eqpa = new Equipamento();
+				eqpa.setReferencia(rs.getInt("referencia"));
+				eqpa.setProduto(rs.getString("produto"));
+				eqpa.setValorDeCompra(rs.getDouble("valor_de_compra"));
+				eqpa.setDataDeCompra(rs.getDate("data_de_compra"));
+				eqpa.setDataDeVenda(rs.getDate("data_de_venda"));
+				eqpa.setTurnoDeTrabalho(rs.getInt("turno_de_trabalho"));
+				eqpa.setDepreciacao(rs.getInt("depreciacao"));
+				lsCalEquipamento.add(eqpa);
+			}
+		} catch (Exception e) {
+			System.err.println("---------------------");
+			System.err.println("Erro: " + e.getMessage());
+			e.printStackTrace();
+			System.err.println("---------------------");
+		} finally{
+			closeConnection(con, ps);
+		}
+		return lsCalEquipamento;
+	}
+	
 	public List<Equipamento> selectAll() {
 		List<Equipamento> lsEquipamento = null;
 		String sql = "SELECT ID, REFERENCIA, PRODUTO, DATA_DE_COMPRA, DATA_DE_VENDA, VALOR_DE_COMPRA, VALOR_DE_VENDA, TURNO_DE_TRABALHO, ESTADO_DO_PRODUTO, DEPRECIACAO, CATEGORIA FROM equipamento ORDER BY id";
