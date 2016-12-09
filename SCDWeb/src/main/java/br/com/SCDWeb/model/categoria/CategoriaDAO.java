@@ -86,25 +86,6 @@ public class CategoriaDAO extends ConnectionFactory{
 		}
 	}
 	
-	public void update(Categoria categoria){
-		String sql = "UPDATE categorias SET categoria = ?, descricao = ? WHERE id = ?";
-		try {
-			con = openConnection();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, categoria.getCategoria());
-			ps.setString(2, categoria.getDescricao());
-			ps.setLong(3, categoria.getId());
-			ps.executeUpdate();
-		} catch (Exception e){
-			System.err.println("---------------------");
-			System.err.println("Erro: " + e.getMessage());
-			e.printStackTrace();
-			System.err.println("---------------------");
-		} finally {
-			closeConnection(con, ps);
-		}
-	}
-	
 	public Categoria selectByID(Long id){
 		Categoria categoria = null;
 		String sql = "SELECT id, categoria, descricao FROM categorias WHERE id = ?";

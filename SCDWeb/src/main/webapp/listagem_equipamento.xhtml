@@ -22,8 +22,12 @@
 			<h:outputLabel value="#{msgs.eqpPageTitle}" />
 		</h2>
 		<h:form>
+			<h:commandLink value="Cadastrar Novo Bem" styleClass="linkCad"
+				action="#{viewEquipamento.actionNovo}" />
+			<br />
+			<br />
 			<h:dataTable value="#{viewEquipamento.todosEquipamentos}"
-				var="objEquipamento" border="1" styleClass="table" >
+				var="objEquipamento" border="1" styleClass="table">
 				<f:facet name="header">
 					<h:outputLabel value="#{msgs.eqpPageTableTitle}" />
 				</f:facet>
@@ -118,9 +122,9 @@
 						<h:outputLabel value="Calcular" />
 					</f:facet>
 					<h:commandLink action="ola">
-						<h:graphicImage library="img" name="calculator-interface-symbol.png" />
-						<f:setPropertyActionListener value=""
-							target="" />
+						<h:graphicImage library="img"
+							name="calculator-interface-symbol.png" />
+						<f:setPropertyActionListener value="" target="" />
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
