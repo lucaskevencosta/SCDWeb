@@ -33,7 +33,6 @@ public class EquipamentoBean implements Serializable{
 	}
 	
 	public String actionChamarCalculo(){
-		new EquipamentoRN().listarPorId(equipamento.getId());
 		return "formulario_depreciacao";
 	}
 

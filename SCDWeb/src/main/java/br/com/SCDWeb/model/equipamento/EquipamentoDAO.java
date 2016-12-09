@@ -55,41 +55,6 @@ public class EquipamentoDAO extends ConnectionFactory {
 			closeConnection(con, ps);
 		}
 	}
-	
-	public Equipamento selectById(Long id) {
-		Equipamento equipamento = new Equipamento();
-		String sql = "SELECT REFERENCIA, PRODUTO, DATA_DE_COMPRA, DATA_DE_VENDA, VALOR_DE_COMPRA, " 
-				+ "VALOR_DE_VENDA, TURNO_DE_TRABALHO, ESTADO_DO_PRODUTO, DEPRECIACAO, CATEGORIA FROM equipamento "
-				+ "WHERE id = ?";
-		try {
-			con = openConnection();
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			
-			ps.setLong(1, id);
-			if (rs.next()) {
-				equipamento.setReferencia(rs.getInt("referencia"));
-				equipamento.setProduto(rs.getString("produto"));
-				equipamento.setDataDeCompra(rs.getDate("data_de_compra"));
-				equipamento.setDataDeVenda(rs.getDate("data_de_venda"));
-				equipamento.setValorDeCompra(rs.getDouble("valor_de_compra"));
-				equipamento.setValorDeVenda(rs.getDouble("valor_de_venda"));
-				equipamento.setTurnoDeTrabalho(rs.getInt("turno_de_trabalho"));
-				equipamento.setEstadoDoProduto(rs.getString("estado_do_produto"));
-				equipamento.setDepreciacao(rs.getInt("depreciacao"));
-				equipamento.setCategoria(new CategoriaRN().listarPorId(rs.getLong("CATEGORIA")));				
-			}
-		} catch (Exception e) {
-			System.err.println("---------------------");
-			System.err.println("Erro: " + e.getMessage());
-			e.printStackTrace();
-			System.err.println("---------------------");
-		} finally {
-			closeConnection(con, ps);
-		}
-		
-		return equipamento;
-	}
 
 	public List<Equipamento> selectAll() {
 		List<Equipamento> lsEquipamento = null;
