@@ -26,6 +26,7 @@ public class Equipamento implements Serializable {
 	private Integer turnoDeTrabalho;
 	private String estadoDoProduto;
 	private Integer depreciacao;
+	private Double valorResidual = null;
 	private Categoria categoria = new Categoria();
 	
 	public Long getId() {
@@ -95,5 +96,11 @@ public class Equipamento implements Serializable {
 	}
 	public void setValorDeVenda(double valorDeVenda) {
 		this.valorDeVenda = valorDeVenda;
+	}
+	public Double getValorResidual() {
+		return valorResidual;
+	}
+	public void setValorResidual(Double valorResidual) {
+		this.valorResidual = valorResidual;
 	}
 }

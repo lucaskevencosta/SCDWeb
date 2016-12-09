@@ -16,12 +16,20 @@ public class DepreciacaoRN {
 	
 	public Depreciacao calcularDepreciacao(Equipamento equipamento) {
 		Depreciacao depreciacao = new Depreciacao();
-		Double da;
+		// Depreciação acumulada
+	    Double da;
+	    // custo do bem
 		Double cb;
+		// taxa
 		Double i;
+		// período
 		int n;
+		// valor contábil
 		Double vc;
+		// Ganho ou perda
 		Double gp;
+		// valor residual
+		Double vr = 0.0;
 		Double turno = null;
 
 		if (equipamento.getTurnoDeTrabalho() == 1)
@@ -34,8 +42,9 @@ public class DepreciacaoRN {
 		cb = equipamento.getValorDeCompra();
 		i = (double) (equipamento.getDepreciacao() / 100) * turno;
 		n = calcularPeriodo(equipamento);
+		vr = equipamento.getValorResidual();
 
-		da = (cb * i * n) / 12;
+		da = ((cb - vr) * i * n) / 12;
 
 		vc = cb - da;
 

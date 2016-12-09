@@ -35,6 +35,11 @@ public class EquipamentoBean implements Serializable{
 		new EquipamentoRN().apagar(equipamento);
 		return "listagem_equipamento?faces-redirect=true";
 	}
+	
+	public String actionChamarCalculo(){
+		new DepreciacaoBean().prepararCalculo(equipamento);
+		return "formulario_depreciacao.xhtml";
+	}
 
 	public List<Categoria> getTodasCategorias(){
 		return new CategoriaRN().listarCategoria();
