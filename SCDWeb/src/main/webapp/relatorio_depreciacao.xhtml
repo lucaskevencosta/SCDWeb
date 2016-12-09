@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>#{msgs.layoutWindowTitle}</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+</h:head>
+
+<h:body>
+	<ui:insert name="header">
+		<ui:include src="/template/common/commonHeader.xhtml" />
+	</ui:insert>
+
+	<div align="center" class="contentRelatorio">
+		<h2>
+			<h:outputLabel value="#{msgs.relatorioTitlePage}" />
+		</h2>
+
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{msgs.relatorioDepAcumuladaPrompt}"
+					styleClass="etiquetas" />
+				<h:outputLabel value="#{viewDepreciacao.depreciacao.da}"
+					styleClass="etiquetas" />
+
+				<h:outputLabel value="#{msgs.relatorioValorContabilPrompt}"
+					styleClass="etiquetas" />
+				<h:outputLabel value="#{viewDepreciacao.depreciacao.vc}"
+					styleClass="etiquetas" />
+
+				<h:outputLabel value="#{msgs.relatorioGanhoPerdaPrompt}"
+					styleClass="etiquetas" />
+				<h:outputLabel value="#{viewDepreciacao.depreciacao.gp}"
+					styleClass="etiquetas" />
+					
+				<h:outputLabel value="#{viewDepreciacao.eq}"></h:outputLabel>
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+	<div class="footer" align="center">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonFooter.xhtml" />
+		</ui:insert>
+	</div>
+</h:body>
+
+</html>

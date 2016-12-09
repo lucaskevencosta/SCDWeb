@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import br.com.SCDWeb.model.categoria.Categoria;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
@@ -17,6 +18,7 @@ import br.com.SCDWeb.model.equipamento.EquipamentoRN;
  */
 
 @ManagedBean (name = "viewEquipamento")
+@SessionScoped
 public class EquipamentoBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -28,8 +30,8 @@ public class EquipamentoBean implements Serializable{
 	}
 	
 	public String actionCalcular() {
-		
-		return "";
+		new DepreciacaoBean().calcularDepreciacao(equipamento);
+		return "relatorio_depreciacao";
 	}
 	
 	public String actionApagar(){
