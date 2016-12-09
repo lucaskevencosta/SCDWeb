@@ -38,7 +38,7 @@ public class EquipamentoBean implements Serializable{
 	
 	public String actionChamarCalculo(){
 		new DepreciacaoBean().prepararCalculo(equipamento);
-		return "formulario_depreciacao.xhtml";
+		return "formulario_depreciacao?faces-redirect=true";
 	}
 
 	public List<Categoria> getTodasCategorias(){
