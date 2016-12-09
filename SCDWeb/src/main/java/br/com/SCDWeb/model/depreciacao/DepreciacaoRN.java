@@ -3,6 +3,7 @@
  */
 package br.com.SCDWeb.model.depreciacao;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -54,51 +55,27 @@ public class DepreciacaoRN {
 	}
 
 	public int calcularPeriodo(Equipamento equipamento) {
-		Date dtInicial = equipamento.getDataDeCompra();
-		Date dtFinal = equipamento.getDataDeVenda();
+		GregorianCalendar gcInicial = new GregorianCalendar();
+		GregorianCalendar gcFinal = new GregorianCalendar();
 		int periodo = 0;
+		
+		gcInicial.setTime(equipamento.getDataDeCompra());
+		gcFinal.setTime(equipamento.getDataDeVenda());
 
-		periodo = (encontrarAno(dtFinal) - encontrarAno(dtInicial)) * 12;
+		periodo = (gcInicial.YEAR - gcFinal.YEAR) * 12;
 
 		// cálculo do ano inicial
-		if (encontrarDiaDoMes(dtInicial) <= 15)
-			periodo = periodo - (encontrarMes(dtInicial) - 1);
+		if (gcInicial.DAY_OF_MONTH <= 15)
+			periodo = periodo - (gcInicial.MONTH - 1);
 		else
-			periodo = periodo - encontrarMes(dtInicial);
+			periodo = periodo - gcInicial.MONTH;
 
 		// cálculo do ano final
-		if (encontrarDiaDoMes(dtFinal) <= 15)
-			periodo = periodo + (encontrarMes(dtFinal) - 1);
+		if (gcFinal.DAY_OF_MONTH <= 15)
+			periodo = periodo + (gcFinal.MONTH - 1);
 		else
-			periodo = periodo + (encontrarMes(dtFinal));
+			periodo = periodo + gcFinal.MONTH;
 
 		return periodo;
-	}
-
-	public int encontrarDiaDoMes(Date dt) {
-
-		GregorianCalendar calendario = new GregorianCalendar();
-		calendario.setTime(dt);
-		int dia = calendario.get(GregorianCalendar.DAY_OF_MONTH);
-
-		return dia;
-	}
-
-	public int encontrarMes(Date dt) {
-
-		GregorianCalendar calendario = new GregorianCalendar();
-		calendario.setTime(dt);
-		int mes = calendario.get(GregorianCalendar.MONTH);
-
-		return mes;
-	}
-
-	public int encontrarAno(Date dt) {
-
-		GregorianCalendar calendario = new GregorianCalendar();
-		calendario.setTime(dt);
-		int ano = calendario.get(GregorianCalendar.YEAR);
-
-		return ano;
 	}
 }

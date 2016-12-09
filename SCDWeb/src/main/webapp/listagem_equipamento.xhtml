@@ -121,10 +121,11 @@
 					<f:facet name="header">
 						<h:outputLabel value="Calcular" />
 					</f:facet>
-					<h:commandLink action="ola">
+					<h:commandLink action="#{viewEquipamento.actionChamarCalculo}">
 						<h:graphicImage library="img"
 							name="calculator-interface-symbol.png" />
-						<f:setPropertyActionListener value="" target="" />
+						<f:setPropertyActionListener value="#{objEquipamento}"
+							target="#{viewEquipamento.equipamento}" />
 					</h:commandLink>
 				</h:column>
 			</h:dataTable>
