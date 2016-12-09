@@ -22,7 +22,7 @@
 			<h:outputLabel value="#{msgs.eqpPageTitle}" />
 		</h2>
 		<h:form>
-			<h:commandLink value="Cadastrar Novo Bem" styleClass="linkCad"
+			<h:commandLink value="Cadastrar Novo" styleClass="linkCad"
 				action="#{viewEquipamento.actionNovo}" />
 			<br />
 			<br />
@@ -98,16 +98,18 @@
 					</f:facet>
 					<h:outputLabel value="#{objEquipamento.categoria.categoria}" />
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputLabel value="Excluir" />
-					</f:facet>
-					<h:commandLink action="#{viewEquipamento.actionApagar}">
-						<h:graphicImage library="img" name="open-trash-can.png" />
-						<f:setPropertyActionListener value="#{objEquipamento}"
-							target="#{viewEquipamento.equipamento}" />
-					</h:commandLink>
-				</h:column>
+				<div id="image">
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Excluir" />
+						</f:facet>
+						<h:commandLink action="#{viewEquipamento.actionApagar}">
+							<h:graphicImage library="img" name="delete-photo.png" />
+							<f:setPropertyActionListener value="#{objEquipamento}"
+								target="#{viewEquipamento.equipamento}" />
+						</h:commandLink>
+					</h:column>
+				</div>
 				<h:column>
 					<f:facet name="header">
 						<h:outputLabel value="Alterar" />
