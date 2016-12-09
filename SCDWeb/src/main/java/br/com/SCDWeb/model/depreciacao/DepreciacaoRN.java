@@ -24,7 +24,7 @@ public class DepreciacaoRN {
 		// taxa
 		Double i;
 		// período
-		int n;
+		int n = 0;
 		// valor contábil
 		Double vc;
 		// Ganho ou perda
@@ -42,7 +42,7 @@ public class DepreciacaoRN {
 
 		cb = equipamento.getValorDeCompra();
 		i = (double) (equipamento.getDepreciacao() / 100) * turno;
-		n = calcularPeriodo(equipamento);
+		//n = calcularPeriodo(equipamento);
 		vr = equipamento.getValorResidual();
 
 		da = ((cb - vr) * i * n) / 12;
@@ -53,16 +53,19 @@ public class DepreciacaoRN {
 
 		return depreciacao;
 	}
+	
+	/*public int calcularPeriodo(Equipamento equipamento) {
+		int periodo = 0;
+		return periodo;
+	}*/
 
 	public int calcularPeriodo(Equipamento equipamento) {
+		Date dtInicial = equipamento.getDataDeCompra();
+		Date dtFinal = equipamento.getDataDeVenda();
 		GregorianCalendar gcInicial = new GregorianCalendar();
-		GregorianCalendar gcFinal = new GregorianCalendar();
 		int periodo = 0;
-		
-		gcInicial.setTime(equipamento.getDataDeCompra());
-		gcFinal.setTime(equipamento.getDataDeVenda());
 
-		periodo = (gcInicial.YEAR - gcFinal.YEAR) * 12;
+		periodo = (gc.get(GregorianCalendar.YEAR) - gcFinal.YEAR) * 12;
 
 		// cálculo do ano inicial
 		if (gcInicial.DAY_OF_MONTH <= 15)

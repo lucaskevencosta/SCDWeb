@@ -28,7 +28,7 @@ public class DepreciacaoBean implements Serializable {
 	
 	public void prepararCalculo(Equipamento equipamento) {
 		setEquipamento(equipamento);
-		this.depreciacao = new DepreciacaoRN().calcularDepreciacao(equipamento);
+		//this.depreciacao = new DepreciacaoRN().calcularDepreciacao(equipamento);
 	}
 	
 	public Depreciacao getDepreciacao() {
