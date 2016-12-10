@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 
 import br.com.SCDWeb.model.categoria.Categoria;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
+
 import br.com.SCDWeb.model.equipamento.Equipamento;
 import br.com.SCDWeb.model.equipamento.EquipamentoRN;
 
@@ -17,50 +18,50 @@ import br.com.SCDWeb.model.equipamento.EquipamentoRN;
  *
  */
 
-@ManagedBean (name = "viewEquipamento")
+@ManagedBean(name = "viewEquipamento")
 @SessionScoped
-public class EquipamentoBean implements Serializable{
-	
+public class EquipamentoBean implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	private Equipamento equipamento = new Equipamento();
-	
-	public String actionAtualizar(){
+
+	public String actionAtualizar() {
 		return "cadastro_equipamento";
 	}
-	
-	public String actionCalcular() {
-		new DepreciacaoBean().calcularDepreciacao(equipamento);
-		return "relatorio_depreciacao";
-	}
-	
-	public String actionApagar(){
+
+	public String actionApagar() {
 		new EquipamentoRN().apagar(equipamento);
 		return "listagem_equipamento?faces-redirect=true";
 	}
-	
-	public String actionChamarCalculo(){
-		return "formulario_depreciacao";
+
+	public String actionCalcular() {
+		new DepreciacaoBean().calcularDepreciacao(equipamento);
+		return "relatorio_depreciacao?faces-redirect=true";
 	}
 
-	public List<Categoria> getTodasCategorias(){
+	public String actionChamarCalculo() {
+		return "formulario_depreciacao?faces-redirect=true";
+	}
+
+	public List<Categoria> getTodasCategorias() {
 		return new CategoriaRN().listarCategoria();
 	}
-	
-	public List<Equipamento> getTodosEquipamentos(){
+
+	public List<Equipamento> getTodosEquipamentos() {
 		return new EquipamentoRN().listarTodos();
 	}
-	
-	public String actionSalvar(){
+
+	public String actionSalvar() {
 		new EquipamentoRN().salvar(equipamento);
 		return "listagem_equipamento?faces-redirect=true";
 	}
-	
-	public String actionNovo(){
+
+	public String actionNovo() {
 		this.equipamento = new Equipamento();
 		return "cadastro_equipamento";
 	}
-	
+
 	public Equipamento getEquipamento() {
 		return equipamento;
 	}
@@ -68,7 +69,7 @@ public class EquipamentoBean implements Serializable{
 	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
 	}
-	
+
 	public String actionInicio() {
 		return "listagem_equipamento?faces-redirect=true";
 	}

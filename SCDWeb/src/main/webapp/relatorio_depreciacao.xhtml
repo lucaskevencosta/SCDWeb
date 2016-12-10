@@ -23,21 +23,21 @@
 			<h:outputLabel value="#{msgs.relatorioTitlePage}" />
 		</h2>
 		<h:form>
-			<h:inputHidden value="#{viewDepreciacao.depreciacao}" />
+		<h:inputHidden value="#{viewDepreciacao.depreciacao}"/>
 			<h:panelGrid columns="2">
 				<h:outputLabel value="#{msgs.relatorioDepAcumuladaPrompt}"
 					styleClass="etiquetas" />
 				<h:inputText value="#{viewDepreciacao.depreciacao.da}"
-					disabled="true" styleClass="input" />
+					disabled="true" styleClass="input"/>
 
 				<h:outputLabel value="#{msgs.relatorioValorContabilPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewDepreciacao.depreciacao.da}"
+				<h:inputText value="#{viewDepreciacao.depreciacao.vc}"
 					disabled="true" styleClass="input" />
 
 				<h:outputLabel value="#{msgs.relatorioGanhoPerdaPrompt}"
 					styleClass="etiquetas" />
-				<h:inputText value="#{viewDepreciacao.depreciacao.da}"
+				<h:inputText value="#{viewDepreciacao.depreciacao.gp}"
 					disabled="true" styleClass="input" />
 			</h:panelGrid>
 		</h:form>

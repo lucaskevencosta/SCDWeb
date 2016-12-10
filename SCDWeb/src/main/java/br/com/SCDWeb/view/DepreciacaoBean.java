@@ -1,7 +1,5 @@
-/**
- * 
- */
-package br.com.SCDWeb.view;
+
+ package br.com.SCDWeb.view;
 
 import java.io.Serializable;
 
