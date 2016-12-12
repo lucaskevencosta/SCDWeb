@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 
 import br.com.SCDWeb.model.categoria.Categoria;
 import br.com.SCDWeb.model.categoria.CategoriaRN;
-
+import br.com.SCDWeb.model.depreciacao.Depreciacao;
 import br.com.SCDWeb.model.equipamento.Equipamento;
 import br.com.SCDWeb.model.equipamento.EquipamentoRN;
 
@@ -25,6 +25,7 @@ public class EquipamentoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Equipamento equipamento = new Equipamento();
+	private Depreciacao depreciacao = new Depreciacao();
 
 	public String actionAtualizar() {
 		return "cadastro_equipamento";
@@ -36,8 +37,8 @@ public class EquipamentoBean implements Serializable {
 	}
 
 	public String actionCalcular() {
-		new DepreciacaoBean().calcularDepreciacao(equipamento);
-		return "relatorio_depreciacao?faces-redirect=true";
+		depreciacao = new DepreciacaoBean().calcularDepreciacao(equipamento);
+		return "relatorio_depreciacao";
 	}
 
 	public String actionChamarCalculo() {
@@ -72,5 +73,13 @@ public class EquipamentoBean implements Serializable {
 
 	public String actionInicio() {
 		return "listagem_equipamento?faces-redirect=true";
+	}
+
+	public Depreciacao getDepreciacao() {
+		return depreciacao;
+	}
+
+	public void setDepreciacao(Depreciacao depreciacao) {
+		this.depreciacao = depreciacao;
 	}
 }

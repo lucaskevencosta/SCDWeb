@@ -11,6 +11,11 @@ import java.io.Serializable;
  */
 public class Depreciacao implements Serializable {
 	
+	@Override
+	public String toString() {
+		return "Depreciacao [da=" + da + ", vc=" + vc + ", gp=" + gp + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 	// depreciação acumulada
 	private Double da;
